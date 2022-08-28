@@ -1,0 +1,130 @@
+@use "sass:map";
+
+@mixin none-border {
+    border: none;
+    outline: none;
+}
+$button-colors: (
+  "qualified": #119F37,
+  "hold": #707070,
+  "reject": #D61010,
+  "ongoing":#FF9E16,
+  "save":#0081BC,
+  "notheld":#E8E8E8,
+  "slot":#061A40,
+  "accept": #119F37
+);
+@mixin status-button {
+    color: #fff;
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    font-size:15px;
+    text-align: center;
+    max-width: 130px;
+}
+
+h1,h2,h3{
+    font-family: Montserrat;
+}
+.container-fluid{
+    font-family: Montserrat;
+    margin-top: 6rem;
+    padding: 0 8rem 0 4rem;
+    
+}
+.candidate-head{
+    justify-content: space-between;
+    font-weight: 400;
+    text-transform: uppercase;
+    h1{
+        font-size: 28px;
+    }
+    span button{
+        display: flex;
+        background-color: #0081BC;
+        color: #fff;
+        padding: .3rem 2.3rem;
+        @include none-border;
+        align-items: center;
+        border-radius: 3px;
+        i{
+            font-size: 22px;
+        }
+        h2{
+            margin: 0 0 0 10px;
+            font-weight: 400;
+            font-size: 19px;
+        }
+    }
+}
+.candidate-body{
+    margin-top: 3rem;
+    max-height: 600px;
+    overflow-y: scroll;
+    .rounds table{
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 1em;
+        background-color: #F4F4F4;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        min-height: 105px;
+        max-height: 110px;
+        .round-title{
+            font-size: 15px;
+            font-weight: 500;
+        }
+        th{
+            padding: 0;
+            color: #838383;
+        }
+        td{
+            flex-wrap: wrap;
+            padding: 0;
+            vertical-align: top;
+            img{
+                height: 30px;
+                width: 30px;
+                // text-align: center;
+                vertical-align: top;
+            }
+        }
+        tr .mail{
+            font-size: 14px;
+            min-width: 208px;
+            span{
+                margin: 0;
+            }
+        }
+        .round-name{
+            font-size: 20px;
+            min-width: 220px
+        }
+    }
+    .status-button{
+        @include none-border;
+        @include status-button;
+        
+    }
+    .qualified{
+        background-color: map.get($button-colors,"qualified");
+    }
+    .hold{
+        background-color: map.get($button-colors,"hold");
+    }
+    .on-hold{
+        background-color: map.get($button-colors,"hold");
+    }
+    .accept{
+        background-color: map.get($button-colors,"accept");
+    }
+    .reject{
+        background-color: map.get($button-colors,"reject");
+    }
+    .slot{
+        background-color: map.get($button-colors,"slot");
+    }
+    .save{
+        background-color: map.get($button-colors,"save");
+    }
+}

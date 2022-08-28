@@ -1,0 +1,118 @@
+.innerbox {
+    background:white;
+    padding-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    box-shadow: -3px 3px 14px #00000029;
+    border-radius: 8px;
+}
+.martop10 {
+    margin-top: 10px;
+}
+.martop30 {
+    margin-top: 30px;
+}
+.logo {
+    .koyo-logo {
+        position: relative;
+        top: 30px;
+        width: 60%;
+    }
+    .presidio-logo {
+        position: relative;
+        top: 30px;
+        width: 70%;
+
+    }
+}
+.loginbody {
+    background-image:url('./../../../assets/loginbackground.jpg');
+    background-size:cover;
+    height: 100vh;
+}
+.presidio-blue img{
+    width: 40%;
+    padding-bottom: 30px;
+    margin-top: 190px;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    font-family: Montserrat;
+}
+.colortwo {
+    color: #333F50;
+}
+.innertext1 {
+    font-size: 30px;
+    color: #061A40;
+    font-weight: 600;
+}
+.innertext2 {
+    color:#222A35;
+    font-size: 25px;
+}
+.loginbtn {
+    background:#0081BC;
+    padding:10px;
+    width: 60%;
+    border:transparent;
+    color: white;
+    box-shadow: -3px 3px 20px #0000002C;
+    border-radius: 4px;
+}
+
+.koyo-text {
+    color: white;
+    opacity: 0.1;
+    margin-left: 2%;
+    h1 {
+        font-size: 100px;
+        letter-spacing: 38.75px;
+    }
+    .innertext {
+        font-size: 30px;
+    }
+
+}
+.row {
+    margin-left: 8%;
+    box-shadow: -3px 3px 14px #00000029;
+border-radius: 8px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .row {
+        margin-left:0%;
+        margin-right: 0%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .row {
+        margin-left:0%;
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .row {
+        margin-left:0;
+        margin-right: 0;
+    }
+    .logo {
+        .koyo-logo {
+            width: 40%;
+        }
+        .presidio-logo {
+            width: 50%;
+        }
+    }
+}

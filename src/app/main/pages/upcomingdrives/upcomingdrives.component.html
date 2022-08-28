@@ -1,0 +1,62 @@
+<div class="scroll">
+    <div class="font-22 colorone drivetext martop-10 font-bold" *ngIf="LiveDrives&&title=='UPCOMING DRIVES'">
+        HAPPENING NOW
+    </div>
+    <div *ngFor="let details of LiveDrives">
+        <div class="cards cards-live col-sm-12"  *ngIf="title=='UPCOMING DRIVES'">
+             <div class="innertext row" >
+                 <div class="col-lg-6 col-md-12">
+                     <div class="d-flex">
+                     <div class="colorone font-18 text" >{{details.college_name}}</div> <div class="live px-3 ml-3" >Live</div>
+                    </div>
+                     <div class="martop-5 font-14 colortwo text datetext" >{{details.start_date | date:'longDate'}} to {{details.end_date | date:'longDate'}}</div>
+                 </div>
+                 <div class="alignselfcenter col-lg-6 col-md-12 d-flex justify-content-end align-self-end tab-block">
+                  <div class="martop-5 font-14 colortwo text px-3 py-2 d-none d-lg-block d-print-block" >
+                      {{details.count}} candidates
+                    </div>
+                 <div class="d-flex islivebtns">
+                     <div class="wid-100slot">
+                        <button class="pad-10 myslot text mr-3"  > 
+                            GO TO MY SLOT <mat-icon>east</mat-icon>
+                        </button>
+                     </div>
+                     <div >
+                         <button class="pad-10 getin text mr-3"  > 
+                        GET IN
+                        </button>
+                    </div>
+                     <div>
+                         <button class="pad-10 viewdet text" (click)="viewDriveDetails(details.interview_id)">View Details</button>
+                    </div>
+                    </div>
+                 </div>
+             </div>
+             </div>
+        </div>
+    <div class="font-22 colorone drivetext martop-10 font-bold">{{title}}</div>
+    <div *ngFor="let details of drivedata">
+    <div class="cards cards-notlive col-sm-12">
+         <div class="innertext row" >
+             <div class="col-lg-6 col-md-12">
+                 <div class="d-flex">
+                 <div class="colorone font-18 text" >{{details.college_name}}</div>
+                </div>
+                 <div class="martop-5 font-14 colortwo text datetext" >{{details.start_date | date:'longDate'}} to {{details.end_date | date:'longDate'}}</div>
+             </div>
+             <div class="alignselfcenter col-lg-6 col-md-12 col-12 d-flex justify-content-end align-self-end tab-block">
+              <div class="martop-5 font-14 colortwo text px-3 py-2 d-none d-lg-block d-print-block" >
+                  {{details.count}} candidates
+                </div>
+             <div class="d-flex islivebtns wid-100">
+                 <div class="wid-100">
+                    <button class="pad-10 continue text mr-2" *ngIf="title=='Drafts'">Continue</button>
+                    <button class="pad-10 discard text" *ngIf="title=='Drafts'">Discard Draft</button>
+                     <button class="pad-10 viewdet text wid-100" *ngIf="title!='Drafts'" (click)="viewDriveDetails(details.interview_id)">View Details</button>
+                </div>
+                </div>
+             </div>
+         </div>
+         </div>
+    </div>
+ </div>

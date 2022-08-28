@@ -1,0 +1,26 @@
+<div class="root-sidebar container-fluid sidebar d-md-block" id="sidebar" #sidebar>
+  <div class="innersidetext row d-flex justify-content-center">
+    <div class="innerimage"><img src="../../../../assets/presidio.png"></div>
+ </div>
+  <div class="row d-flex align-items-center h-100 innerside justify-content-center">
+    <div class="marauto d-flex" >
+      <div class="vertical-line" *ngIf="circle"></div>
+<div *ngIf="circle">
+<div class=" col-lg-12 col-md-12 col-12 d-flex   text-white py-3 font-18 "  *ngFor="let sidebar of sidebarDetails" >
+<div class="circle-side" (click)="navigateroute($event)">{{sidebar}}
+</div>
+</div>
+  </div>
+
+  <div *ngIf="!circle">
+    <div class=" col-lg-12 col-md-12 col-12 d-flex   text-white py-3 font-18 "  *ngFor="let sidebar of sidebarDetails" >
+    <div class="non-circle-side pad-10" (click)="navigateroute($event)">{{sidebar}}
+    </div>
+    </div>
+      </div>
+  </div>
+  <div class="fixed-bottom">
+    <img src="../../../../assets/presidio-white.png" class="">
+  </div>
+</div>
+</div>

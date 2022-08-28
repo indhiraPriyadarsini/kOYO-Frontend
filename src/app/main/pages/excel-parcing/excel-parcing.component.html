@@ -1,0 +1,299 @@
+<div class="excelParcing">
+	<div class="excelParcing-header">
+		<div class="row justify-content-between">
+			<div class="col-md-6">
+				<h2 class="heading">
+					Validate CSV Data <small>({{ csvDatas.length }} records)</small>
+				</h2>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<input
+						type="text"
+						class="form-control"
+						(keyup)="searchData($event)"
+						type="text"
+						placeholder="Search"
+					/>
+					<div class="input-group-append">
+						<button class="btn serachButton" type="button">
+							<i class="bi bi-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<mat-drawer-container class="fileDrawer" *ngIf="isViewing">
+					<mat-drawer-content>
+						<button
+							type="button"
+							class="btn btn-secondary heading-button"
+							(click)="toggleFileDrawer()"
+						>
+							SEARCH TERMS
+						</button>
+					</mat-drawer-content>
+				</mat-drawer-container>
+				<button
+					id="btnGroupDrop1"
+					type="button"
+					class="btn btn-secondary dropdown-toggle heading-button"
+					*ngIf="!isViewing"
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					aria-expanded="false"
+				>
+					Add more records
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+					<a class="dropdown-item" (click)="toggleDrawer()">Add manually</a>
+					<a class="dropdown-item">
+						<label for="exampleInput"> Import excel file </label>
+						<input
+							type="file"
+							id="exampleInput"
+							accept=".csv, .xlsx"
+							(change)="importExcelFile($event)"
+							style="display: none"
+						/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<mat-drawer
+		mode="over"
+		[opened]="showDrawer"
+		*ngIf="showDrawer"
+		position="end"
+		class="drawer"
+	>
+		<div class="drawerHeader">
+			<mat-icon (click)="toggleDrawer(); clearForm()">close</mat-icon>
+		</div>
+		<div class="drawerBody">
+			<h1 class="text-center" *ngIf="!isUpdate">Add a Record</h1>
+			<h1 class="text-center" *ngIf="isUpdate">Update Record</h1>
+			<form [formGroup]="tableRowForm">
+				<label>First Name</label>
+				<input type="text" class="form-control" formControlName="firstName" />
+				<label>Last Name</label>
+				<input type="text" class="form-control" formControlName="lastName" />
+				<label>Email</label>
+				<input type="email" class="form-control" formControlName="email" />
+				<label>Register Number</label>
+				<input
+					type="text"
+					class="form-control"
+					formControlName="registerNumber"
+				/>
+				<label>Github Link</label>
+				<input type="text" class="form-control" formControlName="githubLink" />
+				<label>Mobile Number</label>
+				<input
+					type="text"
+					class="form-control"
+					formControlName="mobileNumber"
+				/>
+				<label>Select Department</label>
+				<select class="form-control" formControlName="department" value="">
+					<option *ngFor="let item of departmentList" value="{{ item }}">
+						{{ item }}
+					</option>
+				</select>
+				<div class="btn btn-primary" (click)="toggleDrawer(); clearForm()">
+					Discard
+				</div>
+				<div class="btn btn-success" (click)="addValue()" *ngIf="!isUpdate">
+					Add Row
+				</div>
+				<div class="btn btn-success" (click)="addValue()" *ngIf="isUpdate">
+					Update Row
+				</div>
+			</form>
+		</div>
+	</mat-drawer>
+
+	<mat-drawer
+		mode="over"
+		[opened]="showFiles"
+		*ngIf="showFiles"
+		position="end"
+		class="drawerFiles"
+	>
+		<div class="drawerHeader">
+			<mat-icon (click)="toggleFileDrawer()">close</mat-icon>
+		</div>
+		<div class="drawerBody">
+			<h3>CSV FILES</h3>
+			<div class="filesMain">
+				<div class="fileTab" *ngFor="let file of filesDeatils">
+					<div class="row">
+						<div class="col-md-3 text-center">
+							<mat-icon class="fileIcon">insert_drive_file</mat-icon>
+						</div>
+						<div class="col-md-6">
+							<h6>{{ file.fileName }}</h6>
+							<p class="subName">
+								{{ file.fileSize }}KB &nbsp;
+								{{ file.uploadedDate | date: 'yyyy-MM-dd' }}
+							</p>
+							<p class="subName">Uploaded by Hari</p>
+						</div>
+						<div class="col-md-3">
+							<mat-icon
+								class="downloadIcon"
+								(click)="downloadFile(file.fileName)"
+								>get_app</mat-icon
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</mat-drawer>
+
+	<div class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource" matSort>
+			<ng-container matColumnDef="firstName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+				<td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="lastName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+				<td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="email">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+				<td mat-cell *matCellDef="let element">{{ element.email }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="registerNumber">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>
+					Register Number
+				</th>
+				<td mat-cell *matCellDef="let element">{{ element.registerNumber }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="githubLink">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Github Link</th>
+				<td mat-cell *matCellDef="let element">{{ element.githubLink }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="department">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Department</th>
+				<td mat-cell *matCellDef="let element">{{ element.department }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="mobileNumber">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile Number</th>
+				<td mat-cell *matCellDef="let element">{{ element.mobileNumber }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="action">
+				<th mat-header-cell *matHeaderCellDef>Actions</th>
+				<td mat-cell *matCellDef="let element; let i = index">
+					<mat-drawer-container>
+						<mat-drawer-content>
+							<mat-icon
+								class="icon-edit"
+								(click)="editRow(i, element); toggleDrawer()"
+								>edit</mat-icon
+							>
+							<mat-icon
+								class="icon-close"
+								(click)="storeId(i, element.candidateId)"
+								data-toggle="modal"
+								data-target="#exampleModal"
+								>close</mat-icon
+							>
+						</mat-drawer-content>
+					</mat-drawer-container>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+		</table>
+
+		<mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+	</div>
+
+	<div class="row justify-content-end button-align">
+		<div class="col-md-2">
+			<div
+				class="back btn"
+				[routerLink]="['/pages', 'interview-creation']"
+				routerLinkActive="active"
+			>
+				BACK
+			</div>
+		</div>
+		<div class="col-md-2" *ngIf="!isViewing">
+			<button class="submit btn btn-success" (click)="submit()">CONFIRM</button>
+		</div>
+		<div class="col-md-2" *ngIf="isViewing">
+			<button
+				class="next btn"
+				[routerLink]="['/pages', 'organise-rounds']"
+				routerLinkActive="active"
+			>
+				NEXT
+			</button>
+		</div>
+	</div>
+</div>
+
+<!--  Error Message -->
+<div
+	class="alert alert-danger alert-dismissible fade show errorMessage"
+	role="alert"
+	*ngIf="excelError"
+>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<strong>Errors in excel sheet</strong>
+	<ul *ngFor="let item of errorMessage">
+		<li>{{ item }}</li>
+	</ul>
+</div>
+
+<!-- delete dialog -->
+<div
+	class="modal fade"
+	id="exampleModal"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				Are you sure to delete this row?
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					aria-label="Close"
+				>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-danger"
+					(click)="delete()"
+					data-dismiss="modal"
+				>
+					Confirm
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

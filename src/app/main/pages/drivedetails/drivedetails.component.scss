@@ -1,0 +1,218 @@
+.driveDT-page{
+    padding: 6rem 4rem 4rem;
+    font-family: Montserrat;
+    .heading{
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+      h1{
+        font-size: 32px;
+      }
+      letter-spacing: 0.08px;
+      color: #061A40;
+      text-transform: uppercase;
+      h1{
+        margin: 0;
+      }
+    }
+}
+label{
+  font-weight: 500;
+}
+input,label{
+  font-size: 17px;
+}
+.custom-file-input{
+    padding-left: 100px;
+}
+
+.inputDnD {
+  .form-file-control {
+    position: relative;
+    padding: 5.5rem 0 3em;
+    width: 100%;
+    outline: none;
+    border: 0.05em dashed grey;
+    cursor: pointer;
+    text-align: -webkit-center;
+    text-align-last: center;
+    opacity: 0.9;
+    z-index: 1;
+  }
+  svg{
+    position: absolute;
+    left: 45%;
+    top: 1.4em;
+  }
+}
+.driveForm{
+  width: 100%;
+  .warning{
+    color: rgba(241, 51, 25, 0.993);
+    text-align: right;
+    position: relative;
+    .error-icon{
+      cursor: pointer;
+    }
+  }
+  .form-group .col-8{
+    display: flex;
+    input:focus{
+      outline: none;
+    }
+  }
+}
+.driveForm .drive-lines:first-child{
+  .col-7 .drive-line-body label{
+    justify-content: flex-end;
+  }
+  .col-7 ,.col-5 {
+    .drive-line-body:nth-child(1){
+      margin-bottom: 2rem;
+    }
+  }
+}
+.col-address > span{
+  padding-left: 30px;
+}
+.drive-lines{
+  padding: 15px 0;
+  position: relative;
+  label{
+    display: flex;
+    align-self: center;
+    place-items: center;
+  }
+  .drive-body-input{
+    align-items: center;
+    padding: 0;
+    max-width: 56%;
+  }
+}
+.file-select{
+  position: absolute;
+  color: #2094C9;
+  left: 40%;
+  top: 4.5em;
+}
+.multidate-part{
+  position : relative;
+  font-size: 18px;
+  label{
+    align-self: center;
+    text-align: right;
+    justify-content: flex-end;
+  }
+  input{
+    border: 1px solid;
+    outline: none;
+    font-size: 14px;
+    padding: 0;
+  }
+}
+.textarea-mod{
+  min-height: 140px;
+}
+.drive-buttons{
+  text-align: end;
+  .drive-save{
+    padding: .5rem 4rem;
+    margin-left: 5px;
+  }
+  .btn-primary{
+    background-color: #0081BC;
+    color: #fff;
+    padding: .5rem 4rem;
+  }  
+}
+.modal{
+  .modal-body{
+    height: 400px;
+    overflow-y: scroll;
+  }
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "drop a file or Browse";
+  // content: attr(data-title);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  color: #424242;
+  padding: 5px 8px;
+  background-color: white;
+  outline: none;
+  min-width: 100%;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+@media (max-width: 980px) {
+  .driveDT-page{
+    padding-left: 50px;
+    padding-right: 10px;
+    .heading{
+      width: 100%;
+    }
+  }
+  .driveForm{
+    .warning{
+      padding: 0;
+    }
+  }
+  
+}
+@media (max-width: 500px) {
+  .inputDnD {
+    .form-file-control {
+      font-size: small;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .driveDT-page{
+    padding-left: 20px;
+    padding-right: 10px;
+    .heading{
+      width: 100%;
+      text-align: center;
+      h1{font-size: 32px;}
+      margin-bottom: 15px;
+    }
+  }
+  .inputDnD {
+    .form-file-control {
+      font-size: small;
+      &::before{
+        left: 15%;
+      }
+    }
+  }
+  .driveForm{
+    margin: 0;
+    .warning{
+      font-size: 14px;
+      padding: 0;
+    }
+  }  
+  .drive-lines{
+    label{
+      font-size: 15px;
+    }
+    input{
+      font-size: 14px;
+    }
+  }
+}

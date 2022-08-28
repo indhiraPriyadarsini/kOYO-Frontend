@@ -1,0 +1,105 @@
+$bg-color: #f4f4f4;
+$back-bg-color: #0081bc;
+$export-bg-color: #171616;
+$round-color: #b1d0e1;
+$text-color: #061a40;
+
+*,
+*::before,
+*::after {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+div.past-drives {
+	* {
+		font-family: 'Montserrat', 'Courier New', Courier, monospace !important;
+		color: $text-color;
+	}
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+div.row {
+	& > div.details {
+		background-color: $bg-color;
+		border-radius: 4px;
+	}
+}
+
+div.funnel {
+	border: 1px solid black;
+	border-radius: 4px;
+	p.round {
+		width: calc((90% / var(--max)) * var(--candidates));
+		background-color: $round-color;
+		text-align: center;
+		vertical-align: center;
+		border-radius: 4px;
+		font-weight: 300;
+		font-size: 0.9rem;
+	}
+}
+
+div.row.selected-candidates {
+	p.badge {
+		background-color: $bg-color;
+		margin: 0.5em;
+		margin-left: 0rem;
+		padding: 0.5em 1em;
+	}
+}
+
+h1.main-heading {
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+h3.sub-heading {
+	font-size: 1rem;
+	font-weight: normal;
+	text-transform: capitalize;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: lighter;
+}
+
+div.candidate-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+button.footer-btn {
+	all: unset;
+	text-transform: uppercase;
+	font-size: 1rem;
+	padding: 0.5em 2em;
+	&,
+	* {
+		color: white !important;
+	}
+	text-align: justify;
+	vertical-align: center;
+	letter-spacing: 1px;
+	font-weight: normal;
+	border-radius: 4px;
+	&:first-child {
+		background-color: $back-bg-color;
+	}
+	&:last-child {
+		background-color: $export-bg-color;
+	}
+}
+
+button {
+	&:hover {
+		cursor: pointer;
+	}
+}

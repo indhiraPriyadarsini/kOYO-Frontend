@@ -1,0 +1,178 @@
+<div class="driveDT-page row">
+    <div class="heading">
+        <h1>Create a new Placement Drive</h1>
+    </div>
+    
+    <form [formGroup]="driveForm" class="driveForm">
+        <div class="form-group row drive-lines ">
+            <div class="col-5">
+                <div class="drive-line-body row">
+                    <label for="nameofdrive"  class=" col-5 col-form-label">
+                        Name of Drive
+                        <span class="warning" *ngIf="driveForm.controls['driveName'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    
+                    <div class="drive-body-input col-7 ">
+                        <input type="text" class="form-control" formControlName="driveName" >
+                    </div>
+                    
+                </div>
+                <div class="drive-line-body row">
+                    <label for="clgname" class="col-5 col-form-label">
+                        College Name
+                        <span class="warning" *ngIf="driveForm.controls['collegeName'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    <div class="col-7 drive-body-input">
+                        <input type="text" class="form-control" formControlName="collegeName" >
+                    </div>
+                    <span class="warning offset-5" *ngIf="driveForm.controls['collegeName'].hasError('minlength')">
+                        Enter Proper College Name 
+                    </span>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="drive-line-body row">
+                    <label for="placementemail" class="col-6 col-form-label">
+                        Placement Email
+                        <span class="warning" *ngIf="driveForm.controls['placementEmail'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    <div class="col-6 drive-body-input">
+                        <input type="email" class="form-control" formControlName="placementEmail" placeholder="Enter Email address">
+                    </div>
+                    <span class="warning offset-6" *ngIf="driveForm.controls['placementEmail'].hasError('pattern')">
+                        Enter valid Email 
+                    </span>
+                </div>
+                <div class="drive-line-body row">
+                    <label for="placemencoordinator" class="col-6 col-form-label">
+                        Placement Coordinator
+                        <span class="warning" *ngIf="driveForm.controls['placementCoordinator'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    <div class="col-6 drive-body-input">
+                        <input type="text" class="form-control" formControlName="placementCoordinator" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row drive-lines ">
+            <div class="col-12 row">
+                <label class="col-12 col-form-label">
+                    College Address
+                    <span class="warning" *ngIf="driveForm.controls['collegeAddres'].hasError('required')">
+                        *
+                    </span>
+                </label>
+                <div class="col-8 p-0 col-address row" >
+                    <div class="col-12 ">
+                        <textarea formControlName="collegeAddres" class="form-control ml-3" rows="3"></textarea>
+                    </div>
+                    <span class="warning" *ngIf="driveForm.controls['collegeAddres'].hasError('minlength')">
+                        Enter Correct Address
+                    </span>
+
+                </div>
+                <div class="col-4 drive-date">
+                    <div class="multidate-part">
+                        <div class="row mb-4">
+                            <label class="date-label col-7 m-0">
+                                Drive Start Date
+                                <span class="warning" *ngIf="driveForm.controls['driveDateFrom'].hasError('required')">
+                                    *
+                                </span>
+                            </label>
+                            <input class="date-input col-5" type="date" formControlName="driveDateFrom" [ngModel] ="this.date | date:'yyyy-MM-dd'" (change)="validateDate()">  
+                        </div>
+                        <div class="row">
+                            <label class="date-label col-7 m-0">
+                                Drive End Date
+                                <span class="warning" *ngIf="driveForm.controls['driveDateTo'].hasError('required')">
+                                    *
+                                </span>
+                            </label>
+                            <input type="date" class="col-5 date-input" formControlName="driveDateTo" [ngModel] ="this.date | date:'yyyy-MM-dd'" (change)="validateDate()">
+                        </div>
+                    </div> 
+                </div>  
+            </div>   
+        </div>
+        <div class="form-group row drive-lines ">
+            <div class="row mt-4 col-12">
+                <div class="col-6 " *ngIf = !isViewing>
+                    <label for="uploadfile" class="col-12 col-form-label">
+                        Upload Excel File
+                        <span class="warning" *ngIf="driveForm.controls['file'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    <div class="col-12">
+                        <div class="form-group inputDnD p-0">
+                            <input type="file"class="custom-file-input form-file-control text-success font-weight-bold " formControlName="file" id="inputFile" accept=".csv" (change)="onFileChange($event)" >
+                            <div class="file-select" *ngIf='this.filename'>{{this.filename}}</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" fill="#D3D3D3" class="bi bi-download svg-down" viewBox="0 0 16 16" data-title=this.file.filename>
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="warning offset-4 d-flex col-8" *ngIf="excelError">
+                        <span class="error-icon" type="button" data-toggle="modal" data-target="#FileDataErrorModal">
+                        <i class="bi bi-journal-x"></i> Validation Error. <small>Click to view</small>
+                        </span>
+                    </span>
+    
+                </div>
+                <div class="col-6">
+                    <label for="presidiomod" class="col-12 col-form-label">
+                        Presidio Moderators
+                        <span class="warning" *ngIf="driveForm.controls['presidioMod'].hasError('required')">
+                            *
+                        </span>
+                    </label>
+                    <div class="col-12">
+                        <textarea type="email" class="form-control textarea-mod" formControlName="presidioMod" placeholder="Enter Email Address"></textarea>
+                    </div>
+                    <span class="warning offset-4 " *ngIf="driveForm.controls['presidioMod'].hasError('pattern')">
+                        Enter valid Email  
+                    </span>
+                </div>
+            </div>
+        </div>
+          
+        <div class="drive-buttons" >
+            <button type="submit" class="btn btn-primary" [routerLink]="['/pages']" routerLinkActive="active" *ngIf = "!isViewing ">BACK</button>
+            <button type="submit" class="drive-save btn btn-success" [disabled]="!dateError || !driveForm.valid || excelError" (click)="submit()" *ngIf = "!isViewing">SAVE</button>
+            <button type="submit" class="drive-save btn btn-success" [disabled]="!dateError || !driveForm.valid " (click)="updateDrive()" *ngIf = "isViewing">Update</button>
+            <button type="submit" class="drive-save btn btn-primary" [routerLink]="['/pages', 'validate-csv']" routerLinkActive="active" *ngIf = "isViewing">NEXT</button>
+        </div>
+    </form>
+
+    <div class="modal fade" id="FileDataErrorModal" tabindex="-1" role="dialog" aria-labelledby="FileDataErrorModalTitile" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="FileDataErrorModalTitile">Errors in excel sheet</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body errorMessage">
+                <ul *ngFor = "let item of errorMessage">
+                    <li>{{item}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</div>

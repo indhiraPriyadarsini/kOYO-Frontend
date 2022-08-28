@@ -1,0 +1,50 @@
+<div class="roundsPlanner">
+	<p  class="roundsHeading">NEW TEMPLATE</p>
+	<div class="row">
+		<div  class="col-md-8 templateSelection">
+			<div class="form-group">
+				<span  class="subHead" 
+					>Name Of The Template:</span
+				>
+				<span >
+					<input [(ngModel)]="templateName" (ngModelChange)="setName()" type="text"  />
+				</span>
+			</div>
+		</div>
+
+	</div>
+	<p class="subHead">Create new set of rounds</p>
+	<div class="row">
+		<div class="rounds col-md-10">
+			<span *ngFor="let round of roundDetails" >
+				<span class="badge rounded-pill unSelected" (click)="select(round)"  [class.selectedRound]="selectedRounds.includes(round)">
+					{{
+					round.round_name
+				}}</span>
+			</span>
+			<span class="badge rounded-pill create" (click)="createNewRound()"
+				><i class="bi bi-plus"></i>New</span
+			>
+		</div>
+	</div>
+	<div class="cardMaster">
+		<div class="cards" *ngFor="let round of selectedRounds">
+			<div class="card">
+				<span>{{ round.round_name }} <span class="bi bi-list"></span></span>
+			</div>
+		</div>
+	</div>
+	<div class="row subButton">
+		<div class="col-md-2">
+			<button class="btn roundsCreation" (click)="backto()">
+				CANCEL
+			</button>
+		</div>
+		<div class="col-md-8"></div>
+		<div class="col-md-2 btnSubmit">
+			<button  [disabled]="finishButton" class="btn" (click)="finishTemplate()">
+				Finish
+			</button>
+		</div>
+	</div>
+</div>

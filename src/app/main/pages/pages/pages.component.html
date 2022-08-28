@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row d-sm-block d-md-none align-items-center h-50"  id="sidebarheader" #sidebarheader>
+      <div class="d-flex col-12 justify-content-between align-items-center align-self-center">
+     <div (click)="open()"><mat-icon *ngIf="opensidebar">menu</mat-icon><mat-icon *ngIf="!opensidebar">close</mat-icon></div>
+    
+     <div class="mar-left35 koyologomob"><img src="../../../../assets/koyo-blue.png" *ngIf="!opensidebar" class="koyo-blue"><img src="../../../../assets/koyo-logo.png" *ngIf="opensidebar" class="koyo-white"></div>
+     <div><mat-icon *ngIf="opensidebar">more_vert</mat-icon></div>
+    </div>
+    </div>
+    <div class="container-fluid row">
+    
+        <div class="check-sidebar col-lg-2 col-md-4 col-sm-12 col-xs-12">
+            <app-sidebar ></app-sidebar>
+        </div>
+        <div class="check-dashboard col-lg-10 col-md-8 col-sm-12 col-xs-12" (scroll)="scrolling($event)" (click)="close()">
+            <div class="d-flex justify-content-end align-items-center font-15">Signed in as<span class="text-color ml-1"> {{username}} </span><button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/pages', 'interviewers-list']" routerLinkActive="active">
+                  <span>Interviewers List</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Disqualified Candidates</span>
+                </button>
+                <button mat-menu-item>
+                    <span>Settings</span>
+                  </button>
+                  <hr>
+                <button mat-menu-item>
+                  <span>Logout</span>
+                </button>
+              </mat-menu></div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+    

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@guards/*": ["src/app/core/guards/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@directives/*":["src/app/core/directives/*"]
+    }
+  }
+}

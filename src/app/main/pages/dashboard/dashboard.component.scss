@@ -1,0 +1,182 @@
+.font-14 {
+    font-size: 14px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-22 {
+    font-size: 22px;
+}
+.pad-5 {
+    padding: 5px;
+}
+.pad-10 {
+    padding: 10px;
+}
+.padbot-10 {
+    padding-bottom: 10px;
+}
+.padtop-10 {
+    padding-top: 10px;
+}
+.padright-30 {
+    padding-right:30px ;
+}
+.marbot-30 {
+    margin-bottom: 30px;
+}
+.padleft-30 {
+    padding-left: 30px;
+}
+.martop-5 {
+    margin-top: 5px;
+}
+.martop-10 {
+    margin-top: 10px;
+}
+.marright-10 {
+    margin-right: 10px;
+}
+.colorone {
+    color: #222A35;
+}
+.fixedheight {
+    height: 78vh;
+    overflow-y: scroll;
+}
+.font-bold {
+    font-weight: bold;
+}
+.drafts {
+    font-size:16px;
+    text-decoration: underline;
+    .mat-icon {
+        margin-top: 3px;
+    }
+}
+.fixedheight::-webkit-scrollbar-track {
+    border-radius: 1px;
+    border: 1px solid #C7C7C7;
+    width: 10px;
+  }
+  .fixedheight::-webkit-scrollbar {
+    width: 3px;
+    background-color: #C7C7C7;
+    border-radius: 5px;
+  }
+  .fixedheight::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #0081BC;
+    border: 1px solid #0081BC;
+  }
+.innerdrive {
+    margin-top: 3%;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.newdrive {
+    background: #203864;
+    color: white;
+    border: transparent;
+    font-size: 16px;
+}
+.drivedetails {
+    width: 100%;
+    padding-left: 3%;
+    padding-right: 5%;
+
+}
+.designbtn {
+    background-color: #0081BC;
+}
+.green {
+    background-color: #119F37;
+}
+button {
+    border-radius: 4px;
+}
+@media only screen and (max-width: 769px) {
+
+.innerdrive button {
+    margin-bottom: 10%;
+}
+.drivetext {
+    font-size: 18px;
+}
+.fixedheight {
+    height: 86vh;
+}
+.padleft-30 {
+    padding-left: 10px;
+}
+.padright-30 {
+    padding-right: 10px;
+}
+.innerdrive {
+    flex-direction: column-reverse;
+}
+.designbtns {
+    display: flex;
+    margin-top:7%
+}
+.drafts {
+    display: flex;
+    padding: 0px;
+    .mat-icon {
+        margin-top: 3px;
+    }
+}
+.newdrive {
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+.mobbtns {
+
+    button {
+    font-size: 14px;
+    }
+    justify-content:space-between
+}
+}
+
+
+@media only screen and (max-width: 600px) {
+    .parentdashboard {
+        display: block;
+    }
+    .drivedetails {
+        width: 100%;
+    }
+
+    .fixedheight {
+        height: 78vh;
+    }
+    .padleft-30 {
+        padding-left: 10px;
+    }
+    .padright-30 {
+        padding-right: 10px;
+    }
+    .mobbtns {
+        div {
+
+        font-size: 15px;
+        }
+        button {
+        font-size: 11px;
+        }
+        justify-content:space-between
+    }
+    .drafts {
+        font-size: 14px !important;
+        .mat-icon {
+            margin-top: 2px;
+        }
+    }
+    .innerdrive {
+        margin-top: 0%;
+        margin-bottom: 0% !important;
+    }
+    }

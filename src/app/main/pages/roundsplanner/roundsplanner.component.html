@@ -1,0 +1,64 @@
+<div class="roundsPlanner">
+	<p class="roundsHeading">ROUNDS PLANNER</p>
+	<div class="row">
+		<div class="col-md-3 templateSelection">
+			<div class="form-group">
+				<select
+					class="form-control"
+					id="exampleFormControlSelect1"
+					(change)="getTemplateRounds($event)"
+				>
+					<option value="" hidden>Select Template</option>
+					<option
+						*ngFor="let panel of templateName"
+						[value]="panel.template_id"
+						[selected]="panel.template_name ===selectedTemplate"
+						>
+						{{ panel.template_name }}
+					</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-7"></div>
+		<div class="col-md-2 subButton">
+			<button class="btn roundsCreation" (click)="newTemplate()">
+				CREATE NEW
+			</button>
+		</div>
+	</div>
+	<p class="subHead">Create new set of rounds</p>
+	<div class="row">
+		<div  class="rounds col-md-7">
+			<span *ngFor="let round of roundDetails">
+				<span
+					class="badge rounded-pill unSelected"
+					[class.selectedRound]="selectedRounds.includes(round.round_name)"
+					(click)="select(round.round_name)"
+					>{{ round.round_name }}
+				</span>
+			</span>
+			<span class="badge rounded-pill create" (click)="createNewRound()"
+				><i class="bi bi-plus"></i>New</span
+			>
+		</div>
+	</div>
+	<div cdkDropList (cdkDropListDropped)="drop($event)" class="cardMaster">
+		<div cdkDrag class="cards" *ngFor="let round of selectedRounds">
+			<div class="card">
+				<span>{{ round }} <span class="bi bi-list"></span></span>
+			</div>
+			<div>
+				<span class="bi bi-pencil"></span>
+			</div>
+		</div>
+	</div>
+	<div class="row subButton">
+		<div class="col-md-2">
+			<button class="btn" [routerLink]="['/pages','interview-creation']" routerLinkActive="active">Back</button>
+		</div>
+		<div class="col-md-8"></div>
+		<div class="col-md-2 btnSubmit">
+			<button (click)="nextStep()" class="btn">Submit</button>
+		</div>
+	</div>
+</div>

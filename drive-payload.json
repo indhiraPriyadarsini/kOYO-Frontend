@@ -1,0 +1,40 @@
+{
+    "data": {
+        "ROUNDNAME": {
+            "roundDetailsId": 30,
+            "interviewId": 57,
+            "interviewerIds": [
+                1,
+                2,
+                3
+            ],
+            "roundName": "round1",
+            "date": "2021-05-26T23:28:57.000Z",
+            "startTime": "2021-05-26T23:28:57.000Z",
+            "endTime": "2021-05-27T23:28:57.000Z",
+            "panelCount": 10,
+            "duration": 20,
+            "break": [
+                {
+                    "name": "ihbiuhb",
+                    "startTime": "sdsf",
+                    "endTime": "hvjh"
+                }
+            ],
+            "panels": [
+                {
+                    "panelName": "testpanel 1",
+                    "interviewerId1": 15,
+                    "slots": [
+                        {
+                            "candidateId": 333,
+                            "slotStartTime": "2021-05-26T23:28:57.000Z",
+                            "slotEndTime": "2021-05-27T23:28:57.000Z",
+                            "webexLink": "1"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

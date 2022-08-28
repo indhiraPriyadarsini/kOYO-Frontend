@@ -1,0 +1,240 @@
+<div class="container-fluid mt-5 organise-rounds">
+	<!--  -->
+	<h4 class="mt-2 ml-3">ORGANISE INTERVIEW SLOTS</h4>
+	<!--  -->
+	<div class="stepHeader">
+		<app-rounds-header></app-rounds-header>
+	</div>
+	<!--  -->
+	<div class="container-fluid mt-3 w-100" *ngIf="step1">
+		<form [formGroup]="step1FormValue">
+			<div class="d-flex justify-content-between flex-md-row flex-column">
+				<div class="font-heading">
+					<span class="mt-1 mr-1 subhead">Date</span>
+					<input [disabled]="viewing" class="px-2" type="date" formControlName="date" class="form-control"
+						(change)="dateValidate()" />
+				</div>
+				<div class="font-heading mt-sm-0 mt-1">
+					<span class="mt-1 mr-1 subhead">Number Of Panels</span>
+					<select [disabled]="viewing" class="px-2" formControlName="panel" (change)="checkPanelEmail()">
+						<option value="" disabled>Choose panel</option>
+						<option *ngFor="let panel of panel" [value]="panel">
+							{{ panel }}
+						</option>
+					</select>
+				</div>
+				<div class="font-heading mt-sm-0 mt-1">
+					<span class="mt-1 mr-1 subhead">From</span>
+					<input [disabled]="viewing" (ngModelChange)="checkTime()" class="form-control" class="px-2"
+						type="time" formControlName="startTime" />
+				</div>
+				<div class="font-heading mt-sm-0 mt-1">
+					<span class="mt-1 mr-1 subhead">To</span>
+					<input [disabled]="viewing" class="px-2" type="time" class="form-control"
+						formControlName="endTime" />
+				</div>
+			</div>
+			<div class="d-flex justify-content-between durationRow">
+				<div>
+					<p *ngIf="!viewing" class="font16 mt-2">Drive date:{{startDate}} to {{endDate}}</p>
+				</div>
+				<div class="mt-2 warning">
+					<span *ngIf="step1FormValue.errors?.value === true">Invalid Start And End Time</span>
+				</div>
+			</div>
+
+			<div class="
+					d-flex
+					justify-content-between
+					flex-md-row flex-column
+					durationRow
+				">
+				<div class="font-heading mt-sm-0 mt-1">
+					<span class="mt-1 mr-1 subhead">Interview Duration</span>
+					<select [disabled]="viewing" (ngModelChange)="checkTime()" class="px-2"
+						formControlName="interviewDuration">
+						<option value="" disabled>Choose Time</option>
+						<option *ngFor="let time of timings" [value]="time">
+							{{ time }}
+						</option>
+					</select>
+				</div>
+				<div class="mt-md-0 mt-3">
+					<button [disabled]="viewing" class="px-3 btn" (click)="openBrakePlanner()" [disabled]="!breakButton"
+						[ngClass]="breakButton ? 'btn1' : 'btn2'">
+						CREATE BREAK
+					</button>
+				</div>
+			</div>
+
+			<div class="displayBreaks mt-2 p-2">
+				<span class="breaks m-1 p-1" *ngFor="let breaksData of breakFormData">
+					<span class="timeData">{{ breaksData.breakName }}</span>: <span>{{ breaksData.startTime |
+						displayAMPM }}</span>
+					To
+					<span>{{ breaksData.endTime | displayAMPM }}</span>
+				</span>
+			</div>
+			<div class="d-flex justify-content-between interviewers">
+				<div class="addInterviewers">
+					<span class="subhead">Add Interviewers</span>
+					<div class="addBox">
+						<div class="d-flex justify-content-between mt-2 searchOptions">
+							<div class="search d-flex mt-2">
+								<input  type="text" class="inputClass" (input)="searchByInput()"
+									formControlName="searchByInput" [ngModel]="searchByName" placeholder="SEARCH" />
+								<span class="material-icons searchIcon">search</span>
+							</div>
+							<div class="selecting mt-2">
+								<button  id="btnGroupDrop1" type="button"
+									class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									Category
+								</button>
+								<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+									<a class="dropdown-item" *ngFor='let catego of categories' (click)="searchByCategory(catego)">{{ catego }}</a>
+								</div>
+							</div>
+						</div>
+						<div class="box-1">
+							<div *ngFor="let data of displayData" (click)="selectInterviewers(data)" class="box2 mt-2">
+								<div class="card">
+									<span class="textDisplay">{{ data.email }}</span>
+									<span class="material-icons" *ngIf="validMail.includes(data.email)">task_alt
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="listInterviewers">
+					<div class="d-flex">
+						<span class="subhead">Interviewers</span><span>({{ validMail.length }} members selected)</span>
+					</div>
+
+					<div class="selectedInterviewer p-2 border txt-area">
+						<mat-chip-list #chipList>
+							<mat-chip *ngFor="let interviewerMail of validMail"
+								(removed)="viewing ? '' : removeMail(interviewerMail)">
+								{{ interviewerMail }}
+								<mat-icon matChipRemove>&#10006;</mat-icon>
+							</mat-chip>
+						</mat-chip-list>
+					</div>
+
+					<span class="boxHead">Add a new interviewer</span>
+					<form [formGroup]="interviewersForm">
+						<div class="newInterviewers">
+							<div class="row justify-content-around">
+								<div class="col-6">
+									Mail
+									<div>
+										<input [disabled]="viewing" formControlName="interviewerMail" type="text"
+											class="form-control" placeholder="Mail Address" />
+									</div>
+									<div class="warningDiv">
+										<span class="warning" *ngIf="
+												interviewersForm.controls['interviewerMail'].hasError(
+													'pattern'
+												)
+											">
+											Enter Valid Mail
+										</span>
+									</div>
+								</div>
+								<div class="col-6">
+									Name
+									<div>
+										<input [disabled]="viewing" formControlName="interviewerName" type="text"
+											class="form-control" placeholder="Name of Interviewer" />
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-around mt-2">
+								<div class="col-6">
+									Category
+									<div>
+										<select class="selectOption" formControlName="interviewerCategory"
+											class="form-control">
+											<option value="" disabled>CATEGORY</option>
+											<option *ngFor="let category of categories" [value]="category">
+												{{ category }}
+											</option>
+										</select>
+									</div>
+									<div class="warningDiv"></div>
+								</div>
+								<div class="col-6">
+									Webex Meeting/URL
+									<div>
+										<input [disabled]="viewing" formControlName="interviewerWebex" type="text"
+											class="form-control" placeholder="Enter Webex URL" />
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-around mt-2">
+								<div class="col-6">
+									Mobile Number
+									<div>
+										<input [disabled]="viewing" formControlName="interviewerMobile" type="text"
+											class="form-control" placeholder="Enter Mobile Number" />
+									</div>
+									<div class="warningDiv"></div>
+								</div>
+								<div class="col-6">
+									Enter Slack Mail
+									<div>
+										<input [disabled]="viewing" formControlName="interviewerSlackMail" type="text"
+											class="form-control" placeholder="Enter Slack Mail" />
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-center mt-3 ml-2">
+								<!-- <div class="interviewerBtn">
+									<button class="csvButton">
+										<span class="uploadIcon"> &#x21EA; </span><input accept=".csv, .xlsx"
+											(change)="importExcelFile($event)" class="fileClass" type="file" />
+									</button>
+								</div> -->
+
+								<div class="interviewerBtn">
+									<button class="addListButton btn" (click)="submitInterviewer()"
+										[disabled]="interviewersForm.invalid">
+										Add To List
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div></div>
+		</form>
+	</div>
+	<!--  -->
+	<div class="
+			btngrp
+			d-flex
+			justify-content-between
+			mt-2
+			flex-lg-row flex-column
+			p-2
+		">
+		<div>
+			<button class="btn1 btn mr-2 px-5 mt-3" (click)="goBack()">BACK</button>
+		</div>
+		<div>
+			<button class="btn1 btn mr-2 px-5 mt-3" (click)="saveFormDetails()" [disabled]="currentTab === ''"
+				[ngClass]="currentTab !== '' ? 'btn1' : 'btn2'">
+				SAVE DRAFT
+			</button>
+			<button (click)="nextStep('step1')" class="btn1 px-5 mt-3 btn"
+				[disabled]="step1FormValue.invalid || dateError" [ngClass]="
+					!dateError && nextStepBtn && step1FormValue.valid ? 'btn1' : 'btn2'
+				">
+				NEXT STEP
+			</button>
+		</div>
+	</div>
+</div>

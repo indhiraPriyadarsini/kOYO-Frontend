@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="candidate-head d-flex">
+        <span><h1>Candidate Profile</h1></span>
+        <span>
+            <button><i class="bi bi-arrow-left"></i> <h2>DashBoard</h2></button>
+        </span>
+
+    </div>
+    <div class="candidate-body">
+        <div class="rounds">
+            <div class="round-head">
+                <table *ngFor="let list of statusList">
+                    <tr>
+                        <th class="col-3 round-title">
+                            <span>{{list.round}}</span>
+                        </th>
+                        <th class="col-3 round-title">
+                            <span *ngIf="list.panel!=''">Panel</span>
+                        </th>
+                        <th class="col-2 round-title">
+                            <span>Status</span>
+                        </th>
+                        <th class="col-1"></th>
+                        <th class="col-2 round-title">
+                           <span *ngIf="list.alterStatus!=''">status</span> 
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="round-name">
+                            <span>{{list.name}}</span>
+                        </td>
+                        <td class="d-flex mail">
+                            <span *ngFor="let mail of list.panel">{{mail}}</span>
+                        </td>
+                        <td >
+                            <div class="status-button" [ngClass]="list.status">
+                                <span>{{list.status}}</span>
+                            </div>
+                        </td>
+                        <td><img *ngIf="list.alterStatus!=''" src="../../../../assets/right-arrow.svg" /></td>
+                        <td class="">
+                            <div *ngIf="list.alterStatus!=''" class="status-button" [ngClass]="list.alterStatus">
+                                <span>{{list.alterStatus}}</span>
+                            </div>    
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- <button (click)='check()'>chick</button> -->
+        </div>
+    </div>
+
+</div>

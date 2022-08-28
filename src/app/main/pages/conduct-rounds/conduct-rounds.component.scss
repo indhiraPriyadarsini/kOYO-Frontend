@@ -1,0 +1,168 @@
+@use "sass:map";
+
+@mixin status-button {
+  padding: .3rem 1rem;
+  border-radius: 5px;
+  font-size:15px;
+  text-align: center;
+  max-width: 130px;
+}
+
+$button-colors: (
+  "selected": #119F37,
+  "hold": #707070,
+  "reject": #D61010,
+  "ongoing":#FF9E16,
+  "save":#0081BC,
+  "notheld":#E8E8E8,
+  "slot":#061A40,
+  "accept": #119F37
+);
+
+.container-fluid{
+  font-family: Montserrat;
+  margin-top: 2 rem;
+  width: 100%;
+  padding: 0;
+  .step-2-head{
+    margin-top: 2rem;
+  }
+  width: 97%;
+}
+.slot-button{
+  border: none;
+  outline: none;
+  width: fit-content;
+  background-color: #0081BC;
+  padding: 8px 15px;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  p{
+    margin: 0;
+  }
+}
+
+.conduct-round-body{ 
+  margin: 2rem 0;
+  .p-header{
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+  .drive-active{
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+  }
+  .drive-past{
+    background-color: #F4F4F4;
+  }
+  .round-body{  
+    padding: 18px 10px;
+    margin-bottom: 1rem;
+    .row > div{
+    align-self: center;
+    text-align: center;
+    }
+  }
+  .p-slot{
+    color: #C3C5C6;
+  }
+  .p-name{
+    padding: 10px;
+    background-color: #E8E8E8;
+    border-radius: 20px;
+  }
+  .live {
+    padding: 0;
+    span{
+      background-color: red;
+      color: #fff;
+      border-radius: 3px;
+      padding: 3px 10px;
+    }
+  }
+  .p-feedback{
+    button{
+      font-weight: 500;
+      border: none;
+      outline: none;
+      background: none;
+      padding: 0;
+    }
+  }
+  .p-status-past{
+    @include status-button();
+    text-transform: capitalize;
+    background-color: #fff;
+    color: #717070;
+  }
+  .p-status-active{
+    @include status-button();
+    text-transform: capitalize;
+    background-color: #F4F4F4;
+    color: #717170;
+  }
+  .break-body{
+    color: #D6D6D6;
+    text-align: center;
+    min-height: 70px;
+    max-height: 75px;
+    padding: 1rem;
+  }
+
+  .selected{
+    color: #fff;
+    background-color: map.get($button-colors,"selected");
+  }
+  .hold{
+    color: #fff;
+    background-color: map.get($button-colors,"hold");
+  }
+  .on-hold{
+    color: #fff;
+    background-color: map.get($button-colors,"hold");
+  }
+  .accept{
+    color: #fff;  
+    background-color: map.get($button-colors,"accept");
+  }
+  .rejected{
+    color: #fff;  
+    background-color: map.get($button-colors,"reject");
+  }
+  .slot{
+    color: #fff;  
+    background-color: map.get($button-colors,"slot");
+  }
+  .save{
+    color: #fff;  
+    background-color: map.get($button-colors,"save");
+  }
+}
+
+.roundSwitch{
+  margin: 1.5rem 0 ;
+  .mat-button-toggle-standalone, .mat-button-toggle-group {
+      box-shadow: none;
+  }
+  .mat-button-toggle {
+      background-color: #E8E8E8;
+      color: #515151;
+      height: 45px;
+      width: 172px;
+      padding: 5px;
+      box-shadow: -3px 0px 6px #0000001A;
+      font: normal normal medium 18px/22px Montserrat;
+  }
+  .mat-button-toggle-checked {
+      height: 45px;
+      width: 224px;
+      background-color: #ff9e16;
+      color: white;
+      box-shadow: -2px 0px 6px #0000001D;
+      border-radius: 4px;
+  }
+}

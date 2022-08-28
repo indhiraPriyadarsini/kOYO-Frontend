@@ -1,0 +1,203 @@
+::ng-deep {
+    .mat-expansion-panel-header{
+        height: 100%;
+    }
+    .mat-expansion-panel-header.mat-expanded {
+        height: 100%;
+    }
+    .mat-expansion-panel-header-title, .mat-expansion-panel-header-description{
+        flex-grow: 0 !important;
+        justify-content: flex-end;
+        margin-right: 2% !important;
+    }
+    .mat-content{
+        justify-content: space-between;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+        background-color: white;
+
+        padding: 0px  !important;
+        padding-top: 5px !important;
+
+        padding-left: 5px !important;
+    }
+    .mat-form-field-underline {
+        display: none;
+    }
+    .mat-form-field-infix {
+        min-height: 37px;
+        width: 163px !important;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-infix {
+
+        padding: 0px;
+    }
+    .mat-select-value {
+        padding-top: 4px;
+    }
+}
+.font-300 {
+    font-weight: 300;
+}
+.vertical-top {
+    vertical-align: top;
+
+}
+textarea {
+    width: 100%;
+    border: 1px solid #707070;
+    color: #D3D3D3;
+}
+.font-16 {
+    font-size: 14px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.largetextarea {
+    height: 100px;
+}
+.color-51 {
+    color:#515151
+}
+.parentdiv {
+    overflow-y: scroll;
+    font-family: Montserrat;
+}
+.padr-30 {
+    padding-right: 30%;
+}
+.ongoing {
+    background-color: #FF9E16;
+    color: white;
+    border-radius: 4px;
+}
+.slot {
+    background-color: #061A40;
+    color: white; 
+    border-radius: 4px;
+}
+.qualified {
+    background:#119F37;
+    border:transparent;
+    color: white;
+    border-radius: 6%;
+    align-self: center;
+    width: 165px;
+}
+.bluetag {
+    border: 1px solid #0081BC;
+    color:#0081BC;
+
+    background-color: white;
+}
+.whitetag {
+    background-color: white;
+}
+.savebtn {
+    background:#0081BC;
+    border:transparent;
+    color: white;
+}
+.panel {
+    font-size: 16px;
+}
+.roundname {
+    color:#061A40
+}
+.mat-expansion-panel {
+    background-color:#F4F4F4;
+    border-radius:4px;
+    border: transparent;
+    box-shadow: none;
+}
+.dashbtn {
+    background:#2094C9;
+    border:transparent;
+    color: white;
+}
+.form-control {
+padding: 0px;
+}
+.not-commenced{
+    background-color: #E8E8E8;
+
+    border:transparent;
+    color: #7C7B7B;
+    border-radius: 6%;
+    align-self: center;
+}
+@media only screen and (max-width: 769px) {
+.whitetag {
+    margin-top: 10px;
+}
+.roundnumber {
+    margin-right: 0px !important;
+    padding-right: 6px;
+}
+::ng-deep {
+    .mat-form-field-infix {
+        min-height: 37px;
+        width: 163px !important;
+    }
+}
+.dashbtn {
+    font-size: 14px;
+    .mat-icon {
+        display: none;
+    }
+}
+h2 {
+    font-size: 25px;
+}
+.bluetag {
+    margin-right: 0px !important;
+}
+.roundname {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.flexcolumn {
+    flex-direction: column;
+}
+.btns {
+    flex-wrap: nowrap !important;
+}
+}
+@media only screen and (max-width: 600px) {
+.parentdiv {
+    margin-top: 20px;
+    padding: 0px !important;
+}
+::ng-deep {
+    .mat-form-field-infix {
+        min-height: 37px;
+        width: 125px !important;
+    }
+}
+.bluetag {
+    margin-right: 0px !important;
+}
+h2 {
+    font-size: 25px !important;
+    text-align: center;
+}
+.roundname {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.flexcolumn {
+    flex-direction: column !important;
+}
+.btns {
+    justify-content: center !important;
+    margin-top: 10px;
+}
+.flex-wrap-btn {
+    margin-top: 10px;
+}
+}

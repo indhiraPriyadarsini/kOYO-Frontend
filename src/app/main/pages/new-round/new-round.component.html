@@ -1,0 +1,101 @@
+<div class="newRound">
+    <h1>
+        CREATE A NEW ROUND
+    </h1>
+    <div class="form">
+        <form [formGroup]="staticformGroup">
+            <div class="flex">
+                <span class="left">
+                    <label class="label">Name of Round</label>
+                </span>
+                <span class="right">
+                    <input class="name" type="text" id="name" formControlName="name"><br>
+                    <div class="errormsg"><small
+                            *ngIf="(submitted || staticformGroup.controls['name'].touched) && staticformGroup.controls['name'].invalid"
+                            class="text-danger">Round Name required</small>
+                    </div>
+                </span>
+            </div>
+            <div class="flex">
+                <span class="left">
+                    <label class="label">Description</label>
+                </span>
+                <span class="right">
+                    <input class="description" type="text" id="description"><br>
+                    <!-- <small *ngIf="staticformGroup.controls['description'].touched && staticformGroup.controls['description'].invalid" class="text-danger">invalid value</small> -->
+
+                </span>
+            </div>
+            <div class="flex">
+                <span class="left">
+                    <label class="">Save as Template</label>
+                </span>
+                <div class="right flex">
+                    <input type="radio" name="isTemplateRequired" class="radius marginr10" value=1
+                        formControlName="isTemplateRequired" (change)="handleChange($event)">
+                    <label   class="marginR" checked>Yes</label>
+                        
+                    <input type="radio" name="isTemplateRequired" class="radius marginr10" value=0
+                        formControlName="isTemplateRequired" (change)="handleChange($event)">
+                    <label>NO</label><br>
+                        
+                    <div class="errormsg1">
+                            <small
+                                *ngIf="(submitted || staticformGroup.controls['isTemplateRequired'].touched) && staticformGroup.controls['isTemplateRequired'].invalid"
+                                class="text-danger errormsg">invalid value</small>
+                        </div>
+                </div>
+            </div>
+
+            <div class="template flex">
+                <span class="padRight0 left"><label class="label">Select Template</label></span>
+                <span class="padLeft0 right">
+                    <select class="" id="template" formControlName="template"  (change)="templateSelect()">
+                        <option name="HR Round" value={{i.id}} *ngFor="let i of round">{{i.name}}</option>
+                    </select>
+                    <div class="errormsg">
+                        <small *ngIf="(submitted) && templateInvalid" class="text-danger">invalid value</small>
+                    </div>
+                </span>
+            </div>
+            <label class="center">OR</label>
+            <div class="attribute">
+                <label class="grey">Manually add attributes</label><br>
+                <div id="attributeContainer">
+
+                </div>
+                <small *ngIf="(submitted) && attributeInvalid" class="text-danger right">invalid/empty attribute
+                    name</small>
+                <div class="alignright">
+                    <button class="floatRight button" (click)="addAttribute()">+ Add New Attributes</button>
+                </div>
+            </div>
+            <div class="flex marginb30">
+                <span class="left">
+                    <label>Slots / Panel Required</label>
+                </span>
+                <span class="right flex">
+                    <input type="radio" name="isSlotRequired" class="radius marginr10" value=1
+                        formControlName="isSlotRequired"><label class="marginR">Yes</label>
+                    <input type="radio" name="isSlotRequired" class=" radius marginr10" value=0
+                        formControlName="isSlotRequired"><label>NO</label><br>
+                        <div class="errormsg1"> 
+                            <small
+                        *ngIf="(submitted || staticformGroup.controls['isSlotRequired'].touched) && staticformGroup.controls['isSlotRequired'].invalid"
+                        class="text-danger">invalid value</small>
+                        </div>
+                </span>
+            </div>
+
+            <div class="flex">
+                <span class="halfwidth">
+                    <button class="button discard" (click)="discard()">Discard</button>
+                </span>
+                <span class="halfwidth">
+                    <button class="button  save" type="submit" name="submit" value="Save"
+                        (click)="validate()">Save</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

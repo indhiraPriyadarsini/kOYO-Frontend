@@ -1,0 +1,46 @@
+<div class="breakPlanner">
+    <div class="d-flex justify-content-end p-0">
+        <div>
+            <button (click)="onNoClick()">&#10006;</button>
+        </div>
+    </div>
+    <div class="row">
+        <span class="mx-auto font14">Break Planner</span>
+    </div>
+    <div class="breakPlannerData d-flex flex-column">
+        <form   [formGroup]="breakPlannerForm">
+            <div class="bpForm d-flex justify-content-between flex-column">
+                <div class="p-2">
+                    <span>Name</span>
+                    <div>
+                        <span><input class="px-2" type="text" formControlName="breakType"></span>
+                    </div>
+                </div>
+
+                <div class="p-2 mt-2">
+                    <span>Start Time</span><input (ngModelChange)="startTime($event)" class="ml-2 px-2" type="time" formControlName="startTime">
+                    <div class="warning">
+                        <span *ngIf="invalidStartTime">Invalid Start Time</span>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <span>End Time</span><input (ngModelChange)="endTime($event)" class="ml-3 px-2" type="time" formControlName="endTime">
+                </div>
+                <div class="warning">
+                    <span *ngIf='breakPlannerForm.errors?.value===true'>
+                        Invalid Time
+                    </span>
+                    <span *ngIf="invalidEndTime">
+                        Invalid End Time
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div class="row d-flex align-items-center justify-content-center mt-5">
+            <button class="mt-3" [disabled]=" breakPlannerForm.invalid || invalidStartTime "
+                [ngClass]=" breakPlannerForm.valid  && !invalidStartTime ? 'btn1' : 'btn2' " [mat-dialog-close]="breakPlannerForm"
+                cdkFocusInitial>ADD</button>
+        </div>
+
+    </div>
+</div>

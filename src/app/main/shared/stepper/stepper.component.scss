@@ -1,0 +1,28 @@
+.mat-step-header .mat-step-label{
+    color: rgba(0,0,0,.87);
+    display: none;
+}
+.matStepLabel {
+    display: none;
+} 
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active {
+    display: none;
+}
+::ng-deep .mat-horizontal-stepper-header {
+    padding: 0px 0px 0px 0px !important;
+}
+::ng-deep {
+.mat-stepper-horizontal-line {
+    border-top-width: 6px !important;
+    border-top-color: #119F37;
+  }
+  .mat-step-header .mat-step-icon {
+      background-color: #FF9E16;
+  }
+}
+.wid-100 {
+    width: 100%;
+}
+::ng-deep .app-progress-bar .mat-progress-bar-fill::after {
+    background-color: #119F37 !important;
+}

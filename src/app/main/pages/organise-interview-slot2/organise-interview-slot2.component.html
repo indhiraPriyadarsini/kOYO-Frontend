@@ -1,0 +1,86 @@
+<div class="container-fluid">
+	<div class="step-2-head">
+		<h2>Organise Interview Slots</h2>
+	</div>
+	<app-rounds-header></app-rounds-header>
+	<div class="oi-body col-12">
+		<div class="auto-assign text-right">
+			<button (click)="autoAssign()">AUTO ASSIGN</button>
+		</div>
+		<p>Interviewers left ({{ interviewers.length }} out of {{ count }})</p>
+		<div class="row">
+			<div class="col-4">
+				<div class="interviewer-list size-430">
+					<ul class="list-group">
+						<li
+							draggable
+							*ngFor="let item of interviewers"
+							[dragData]="item"
+							class="list-group-item"
+						>
+							{{ item.mail }}
+						</li>
+						<li class="list-empty" *ngIf="interviewers.length === 0">
+							All Interviewers are Assigned
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-8 row">
+				<div class="size-430 scroll-y col-12">
+					<div class="panel" *ngFor="let li of droppedItems; let i = index">
+						<div
+							class="panel-top"
+							droppable
+							(onDrop)="onItemDrop($event, i + 1)"
+						>
+							<div class="panel-heading col-2">{{ li.name }}</div>
+							<div class="panel-body col-10">
+								<div *ngFor="let item of li.data" class="list-group-item">
+									<span>{{ item.mail }}</span>
+									<button class="item-remove" (click)="deleteData(item.mail, i, isViewing)">X</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div
+		class="
+			btngrp
+			d-flex
+			justify-content-between
+			mt-2
+			flex-lg-row flex-column
+			p-2
+		"
+	>
+		<div>
+			<button class="btn1 mr-2 px-5 mt-3" (click)="goBack()">BACK</button>
+		</div>
+		<div>
+			<button
+				class="btn1 mr-2 px-5 mt-3"
+				(click)="saveFormDetails()"
+				[disabled]="interviewers.length !== 0"
+				[ngClass]="interviewers.length === 0 ? 'btn1' : 'btn2'"
+			>
+				SAVE DRAFT
+			</button>
+			<button
+				(click)="nextStep()"
+				class="btn1 px-5 mt-2"
+				[disabled]="navigation === false && interviewers.length === 0"
+				[ngClass]="
+					interviewers.length === 0 && navigation === true ? 'btn1' : 'btn2'
+				"
+			>
+				NEXT STEP
+			</button>
+		</div>
+	</div>
+</div>

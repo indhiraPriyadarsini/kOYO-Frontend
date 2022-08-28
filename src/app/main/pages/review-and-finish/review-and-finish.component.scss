@@ -1,0 +1,220 @@
+.reviewAndFinish {
+    padding: 60px 60px 10px 60px;
+    height: 100vh;
+    font-family: Montserrat;
+    overflow-y: auto;
+    .pageHeader{
+        margin-top: 60px;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: .7px;
+    }
+    .pdfAlign {
+        margin-top: -50px;
+    }
+    .uppperCase {
+        text-transform: uppercase;
+    }
+    .driveDetailsBox {
+        background-color: #F4F4F4;
+        padding: 15px;
+        margin-top: 40px;
+    }
+    .roundsDetails{
+        .roundSwitch{
+            margin-top: 30px;
+            .mat-button-toggle-standalone, .mat-button-toggle-group {
+                box-shadow: none;
+            }
+            .mat-button-toggle {
+                background-color: #E8E8E8;
+                color: #515151;
+                height: 45px;
+                width: 172px;
+                padding: 5px;
+                box-shadow: -3px 0px 6px #0000001A;
+                font: normal normal medium 18px/22px Montserrat;
+            }
+            
+            .mat-button-toggle-checked {
+                height: 45px;
+                width: 224px;
+                background-color: #ff9e16;
+                color: white;
+                box-shadow: -2px 0px 6px #0000001D;
+                border-radius: 4px;
+            }
+        }
+    }
+    .timingRow{
+        margin-top: 30px;
+        .col-2 , .col-3, .col-4{
+            display: flex;
+            // border-right: 1px dashed #515151;
+            .dataText {
+                font-size: 18px;
+                letter-spacing: 0.02px;
+                text-align: center;
+                margin-top: 7px;
+            }
+            .dataBox {
+                background-color:  #E8E8E8;
+                padding: 8px 30px 8px 30px;
+                letter-spacing: 0.1px;
+                margin-left: 10px;
+                text-align: center;
+            }
+        }
+    }
+    .panelDetail {
+        margin-top: 30px;
+        padding: 0;
+        .panelHeader {
+            font-size: 20px;
+            letter-spacing: .7px;
+            margin: -5px;
+            font-weight: 500;
+            .circle {
+                background: #0081BC;
+                padding: 6px;
+                font-size: 15px;
+                color: white;
+                border-radius: 100%;
+                margin-top: -5px;
+                margin-left: 5px;
+            }
+            .btn {
+                background-color: #0081BC;
+                color: white;
+                position: absolute;
+                right: 0;
+            }
+        }
+        .panel {
+            .mat-expansion-panel:not([class*=mat-elevation-z]){
+                box-shadow: none;
+            }
+            
+            mat-expansion-panel {
+                margin-top: 30px;
+                background-color: #F4F4F4;
+                mat-expansion-panel-header {
+                    height: 80px;
+                    mat-panel-title {
+                        font: normal normal normal 18px/22px Montserrat;
+                        letter-spacing: 0.04px;
+                    }
+                    mat-panel-description{
+                        letter-spacing: 0.02px;
+                        color: black;
+                        font: normal normal normal 14px/17px Montserrat;
+                    }
+                }
+                .mat-elevation-z8{
+                    box-shadow: none;
+                    table {
+                        border: none;
+                        width: 100%;
+                        th, td {
+                            font: normal normal normal 12px/15px Montserrat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .reviewFooter {
+        margin-top: 40px;
+        border: 1px grey;
+        border-style: solid solid none solid ;
+        border-radius: 10px 10px 0px 0px;
+        padding: 40px;
+        .col-md-3{
+            letter-spacing: 0.02px;
+            ::ng-deep .mat-checkbox .mat-checkbox-frame {
+                border-color: #242424;
+                border-radius: 5px;
+            }
+            
+            ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+                background-color: #242424 !important;
+                border-radius: 5px;
+            }
+            ::ng-deep .mat-checkbox-inner-container{
+                width: 20px;
+                height: 20px;
+                
+            }
+            mat-checkbox {
+                font: normal normal normal 16px/19px Montserrat;
+            }
+        }
+        .actions {
+            margin-top: 20px;
+            .backButton {
+                background-color: #0081BC;
+                padding: 10px 40px;
+            }
+            .pdfButton {
+                background-color: #061A40;
+                padding: 10px 10px;
+            }
+            .draftButton {
+                background-color: #0081BC;
+                padding: 10px 40px;
+                text-align: center;
+            }
+            .finishButton {
+                background-color: #119F37;
+                padding: 10px 70px;
+            }
+            .commonButtonCss {
+                color: white;
+                display: flex;
+                font-size: 15px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+    .pdfFooter {
+        text-align: center;
+        margin-top: 100px;
+        font: normal normal normal 18px/22px Montserrat;
+    }
+}
+.col-md-6 {
+    display: flex;
+    padding: 5px;
+    .BoldFont {
+        font-size: 18px;
+        letter-spacing: .4px;
+        font-weight: 400;
+        width: 40%;
+        padding-left: 25px;
+    }
+    .dataFont {
+        font-size: 16px;
+        letter-spacing: .2px;
+        font-weight: 200;
+        width: 60%;
+        text-indent: 20px;
+    }
+}
+
+.reviewAndFinish::-webkit-scrollbar-track {
+    border-radius: 1px;
+    border: 1px solid white;
+    width: 20px;
+  }
+  .reviewAndFinish::-webkit-scrollbar {
+    width: 3px;
+    background-color: white;
+    border-radius: 5px;
+  }
+.reviewAndFinish::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #2495ca;
+    border: 1px solid #2495ca;
+  }

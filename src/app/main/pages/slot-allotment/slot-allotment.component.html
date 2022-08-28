@@ -1,0 +1,111 @@
+<div class="slot-allotment-root">
+	<h1 class="mt-2 ml-4">organise interview slots</h1>
+	<div class="slot-nav">
+		<button (click)="autoAssign()">auto assign</button>
+		<app-rounds-header></app-rounds-header>
+	</div>
+	<div class="container-fluid slot-allotment">
+		<div class="row justify-content-around">
+			<div class="candidates lists p-3 col-lg-2 col-12">
+				<div class="container">
+					<p>
+						Candidates ({{ candidates.length }} left out of
+						{{ totalCandidates }})
+					</p>
+				</div>
+				<div class="container-fluid">
+					<span
+						draggable
+						[dragData]="i"
+						dragTransitClass="chip"
+						[matTooltip]="candidate.name"
+						class="row justify-content-center text-nowrap text-truncate"
+						*ngFor="let candidate of candidates; let i = index"
+					>
+						{{ candidate.name }}
+					</span>
+				</div>
+			</div>
+			<div class="slots lists p-3 col-lg-7 col-12">
+				<div class="container">
+					<div
+						class="slot-heading row justify-content-between align-items-center"
+					>
+						<h2 class="p-0 m-0">panel {{ selectedPanelId - 1 }}</h2>
+						<div class="p-0 m-0">
+							<div>
+								<span
+									class="chip"
+									*ngFor="
+										let interviewer of panels[selectedPanelId - 1].interviewers
+									"
+								>
+									{{ interviewer }}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row slot justify-content-between">
+						<span
+							class="no-hover"
+							*ngFor="
+								let slot of panels[selectedPanelId - 1].slots;
+								let i = index
+							"
+							droppable
+							[dropScope]="isDropAllowed(slot)"
+							dragOverClass="drag-target-border"
+							(onDrop)="drop($event, slot)"
+						>
+							<header class="slot-header m-2">
+								<h4>Slot{{ i }}</h4>
+								<p>
+									<time>{{ slot.start | displayAMPM }}</time> -
+									<time>{{ slot.end | displayAMPM }}</time>
+								</p>
+							</header>
+							<span class="chip" *ngIf="slot.candidate">
+								<p
+									class="text-nowrap text-truncate"
+									[matTooltip]="slot.candidate.name"
+								>
+									{{ slot.candidate.name }}
+								</p>
+								<i (click)="putBack(slot)"> &#10799; </i>
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="panels lists p-3 col-lg-2 col-12">
+				<div class="container-fluid">
+					<span
+						class="row justify-content-center"
+						*ngFor="let panel of panels; let i = index"
+						[class.active]="selectedPanelId === i + 1"
+						(click)="selectedPanelId = i + 1"
+					>
+						panel {{ i }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<button class="back footer-btn" (click)="goBack()">&#8592; back</button>
+		<div>
+			<button class="save-draft footer-btn" (click)="saveDraft()">
+				save draft
+			</button>
+			<button
+				class="next footer-btn"
+				[disabled]="!(panels.every(isNextDisabled) || candidates.length === 0)"
+				(click)="next()"
+			>
+				next
+			</button>
+		</div>
+	</div>
+</div>

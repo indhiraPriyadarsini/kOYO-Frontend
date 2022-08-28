@@ -1,0 +1,34 @@
+<div class="parentdiv px-4 py-4">
+    <div class="d-flex justify-content-between pt-5">
+        <h4>Disqualified candidates</h4>
+     </div>
+  <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" class="mt-5 pt-3 pb-3" *ngFor="let det of detailsData.rounds;let i = index" >
+        <mat-expansion-panel-header>
+          <mat-panel-description >
+            <div class="d-flex flex-column ">
+              <div class="color-black font-18" >{{det.candidateDetail.first_name}} {{det.candidateDetail.last_name}}</div>
+              <div class="font-14" >{{detailsData.college_name}} - {{detailsData.start_date| date:'longDate'}} to {{detailsData.end_date| date:'longDate'}}</div>
+          </div>
+          </mat-panel-description>
+
+          <mat-panel-description class="pt-3">
+            <div class="d-flex flex-column disqualifiedcolumn">
+              <div class="color-black marright-10">Disqualified on</div>
+              <div class="dateby">{{det.date| date:'longDate'}} by <span class="color-blue" *ngFor="let interviewers of det.interviewers">@{{interviewers.first_name}} {{interviewers.last_name}} </span></div>
+          </div>
+          </mat-panel-description>
+          <mat-panel-description class="widthalign">
+            <div class="d-flex flex-column reason pt-3">
+              <div class="color-black" >Reason</div>
+              <div class="widthless" >{{detailsData.rounds[i].attributes}}</div>
+              <div class="d-flex justify-content-end mt-3">
+                  <button class="px-3 py-1 btn" (click)="update(det)">Re-Qualify Candidate</button>
+             </div>   
+          </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

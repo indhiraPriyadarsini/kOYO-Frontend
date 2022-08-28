@@ -1,0 +1,68 @@
+.check-sidebar {
+    background-color: #0081BC;
+    background-color: #0081BC;
+    min-height: 100vh;
+    margin: 0;
+    max-height: 100%;
+    margin: 0;
+}
+.container-fluid {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Montserrat';
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#sidebarheader {
+    background-color: #0081BC;
+    color: white;
+}
+.mar-left35 {
+    margin-left: 20%;
+}
+.koyologomob {
+    .koyo-blue {
+        width: 40%;
+        margin-left: 13%;
+    }
+    .koyo-white {
+        width: 60%;
+    }
+}
+.h-50 {
+    height: 90px  !important;
+}
+::ng-deep {
+    .mat-menu-panel {
+        padding: 10px ;
+    }
+}
+.text-color {
+    color: #0081BC;
+}
+  
+@media only screen and (max-width: 600px) { 
+    .check-sidebar { 
+        min-height: auto;
+        z-index: 1;
+        position: absolute;
+    }
+    .container-fluid {
+        padding-right: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    }
+    .check-dashboard {
+        position: relative;
+    }
+    .font-15 {
+        font-size: 15px;
+    }
+
+}

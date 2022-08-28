@@ -1,0 +1,13 @@
+.header {
+    margin-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    .row {
+        p {
+            text-align: center;
+        }
+        .progress {
+            height: .5rem;
+        }
+    }
+}

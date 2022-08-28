@@ -1,0 +1,55 @@
+<div class="container-fluid">
+	<div class="my-slot">
+		<button class="slot-button">
+			<p>
+				GO TO MY SLOT 
+				<span>
+					<img src="../../../../assets/right-arrow-lite.svg" />
+				</span>
+			</p>
+		</button>
+	</div>
+	<div class="step-2-head">
+		<h2>Conduct Rounds</h2>
+	</div>
+	<div>
+		<div class="roundSwitch" >
+			<mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+				<mat-button-toggle  *ngFor="let value of toggleValue" (click)="getCurrentRound(value.roundName,value.roundId)" [checked]="value.isChecked">{{value.roundName}}</mat-button-toggle>
+			</mat-button-toggle-group> 
+		</div>
+	</div>
+	<div class="container-fluid conduct-round-body" >
+		<div class="p-header" *ngIf="this.roundData && this.roundData.panel_name">{{this.roundData.panel_name}}</div>
+		<div class="round" *ngFor="let data of this.datas;let i = index">
+			<div class="round-body " [ngClass]='data.live==true && data.timeDiff>=0?"drive-active":"drive-past"'> 
+				<div class="row">
+					<div class="col-1 p-slot">
+						slot {{i}}
+					</div>
+					<div class="col-2 p-name">
+						{{data.name}}
+					</div>
+					<div class="col-1 live">
+						<span *ngIf ='data.live===true && data.timeDiff>=0'>Live</span>	
+					</div>
+					<div class="offset-2 col-2 p-time" >
+						<time >{{data.time}}</time>	
+					</div>
+					<div class="col-2 p-feedback">
+						<button (onclick)='feedback()'>feedback screen</button>
+					</div>
+					<div [ngClass]='data.live==true && data.timeDiff>=0?"p-status-active "+data.status:"p-status-past "+data.status' class="col-2">
+						{{data.status}}
+					</div>
+				</div>
+			</div>
+			<div class="break" *ngFor='let i of break' >
+				<div class="break-body" *ngIf='i.time.substr(0,7)==data.time.substr(10)'>
+					<div>-------------- {{i.name}} --------------</div>
+					<div>{{i.time}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

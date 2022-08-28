@@ -1,0 +1,56 @@
+box-shadow{
+    background-color: #888888;
+}
+.breakPlanner{
+    box-shadow:  #888888;
+    background-color: white;
+    button{
+        border:none;
+        background-color: white;
+    }
+    .warning{
+        height:20px;
+        color: #d61010;
+      }
+      label {
+        display: inline-block;
+        width: 110px;
+    }
+    .font14{
+        font-weight:500;
+    }
+}
+
+
+::ng-deep {
+    .mat-dialog-container {
+        padding: 30px!important;
+    }
+    .cdk-overlay-dark-backdrop {
+        background: rgb(111 111 111 / 32%);
+    }
+}
+
+
+.breakPlannerData{
+    .bpForm{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+    }
+    button{
+        height:35px;
+        border:none;
+        width:40%;
+    }
+    .btn1{   
+        background-color: #119F37;
+        color:white;
+    }
+    .btn2{
+        background-color:grey;
+        color:white;
+    }
+
+}
+

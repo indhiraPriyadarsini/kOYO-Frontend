@@ -1,0 +1,47 @@
+<div class="container-fluid resume-upload m-0 p-5">
+	<div class="row instructions">
+		<h1 class="col-12">instructions</h1>
+	</div>
+	<div class="row">
+		<h1 class="col-12">upload resume</h1>
+		<div
+			class="col-12 upload-drop mt-2"
+			[class.active]="isHovered"
+			fileDrop
+			(fileDropped)="updateFile($event)"
+			(fileHovered)="updateHovered($event)"
+			(errorMsg)="updateError($event)"
+		>
+			<div class="row justify-content-center"><i class="bi bi-upload"></i></div>
+			<div class="row justify-content-center">
+				drag a file or
+				<label for="resume">
+					<p>browse</p>
+					<input
+						type="file"
+						id="resume"
+						name="resume"
+						accept="application/pdf"
+						hidden
+						(change)="handleFileChange($event)"
+					/>
+				</label>
+			</div>
+		</div>
+		<div class="col-12 error text-danger mt-2" *ngIf="error">{{ error }}</div>
+		<div class="col-12 mt-2" *ngIf="!error && file">
+			<p *ngIf="!url">{{ file.name }}</p>
+			<a [href]="url" *ngIf="url" [class.text-info]="url" target="_blank">
+				{{ file.name }}
+			</a>
+		</div>
+		<div class="col-12 mt-3 submit">
+			<button class="btn" [disabled]="!file" (click)="submit($event)">
+				submit
+			</button>
+		</div>
+	</div>
+	<!-- <div class="row">
+		<iframe [src]="url" width="100%" *ngIf="url"></iframe>
+	</div> -->
+</div>

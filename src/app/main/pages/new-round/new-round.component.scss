@@ -1,0 +1,219 @@
+.newRound {
+    padding-left: 5%;
+    padding-top: 5%;
+    height: 100vh;
+    overflow:scroll;
+}
+.form {
+    width: 714px;
+    max-width: 800px;
+    margin-left: 10%;
+    min-width: 400px;
+    font-size: 18px;
+    color: #061a40;
+    margin-top: 20px;
+}
+.flex {
+    display: flex;
+    margin-bottom: 22px;
+}
+.flexbox{
+    display: flexbox;
+    columns: 2;
+}
+.left {
+    width: 35%;
+    text-align: right;
+    margin-right: 3%;
+    vertical-align: middle;
+    position: relative;
+}
+.right {
+    margin-left: 3%;
+}
+.fullWidth {
+    width: 100%;
+}
+.halfwidth {
+    width: 50%;
+    position: relative;
+}
+.name {
+    width: 432px;
+    height: 47px;
+}
+.description {
+    width: 432px;
+    height: 93px;
+}
+.template {
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 106px;
+    position: relative;
+}
+
+.attribute {
+    background-color: #f4f4f4;
+    width: 100%;
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+
+.padRight0 {
+    padding: 20px 0px 20px 20px;
+}
+.padLeft0 {
+    padding: 20px 20px 20px 0px;
+}
+.marginR{
+    margin-right: 35%;
+}
+.errormsg{
+    height: 30px;
+    width: 100px;
+    //background-color: #119f37;
+}
+.errormsg1{
+    height: 30px;
+    width: 300px;
+   // background-color: #119f37;
+}
+select {
+    height: 46px;
+    width: 389px;
+    font-size: 15px;
+    color: black;
+    background: linear-gradient(45deg, transparent 50%, grey 50%), linear-gradient(135deg, grey 50%, transparent 50%);
+    //linear-gradient(to right, rgb(134, 135, 136), rgb(143, 143, 143));
+    background-position: calc(100% - 23px) calc(1em + 2px), calc(100% - 16px) calc(1em + 2px), 100% 0;
+    background-size: 7px 7px,7px 7px;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    //background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #fff;
+    -webkit-appearance: none;
+    //background-position-x: 344px;
+}
+input[type=radio] {
+    border: 0px;
+    width: 30px;
+    height: 30px;
+}
+.label {
+    vertical-align: middle;
+    position: relative;
+    top: 20%;
+}
+.center {
+    font-size: large;
+    font-weight: 100;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+}
+.text-danger{
+    color: rgb(233, 91, 91);
+}
+.grey {
+    color: #838383;
+    font-size: medium;
+    margin-left:20px;
+    margin-top: 10px;
+    font-weight:bolder;
+    letter-spacing: 0.5px;
+}
+.alignright {
+    display: flex;
+    width: 100%;
+    height: 60px;
+}
+.margin10 {
+    margin: 10px 10px 10px 10px;
+}
+.marginr10{
+    margin-right: 10px;
+}
+.marginb30{
+    margin-bottom: 100px;
+}
+.attributeField{
+    width: 395px;
+    height: 35px;
+}
+.floatRight {
+    background-color: #2094c9;
+    margin-right: 33px;
+    position: absolute;
+    right: 0px;
+    bottom: 30px;
+    height: 40px;
+    width: 213px;
+}
+
+.button {
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+}
+.discard {
+    background-color: #2094c9;
+    width: 202px;
+    font-size: large;
+    height: 50px;
+}
+.save {
+    background-color: #119f37;
+    width: 202px;
+    font-size: large;
+    height: 50px;
+    position: absolute;
+    right: 0px;
+}
+.remove{
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+@media only screen and (min-width: 500px) {
+    .newRound {
+        padding-left: 5%;
+        padding-top: 15%;
+    }
+}
+@media only screen and (min-width: 990px) {
+    .newRound {
+        padding-left: 5%;
+        padding-top: 5%;
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .form {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .name {
+        width: 300px;
+    }
+    .description {
+        width: 300px;
+    }
+    .marginR{
+        margin-right: 20%;
+    }
+    .right{
+        width:350px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .form {
+        margin-left: 0%;
+        margin-right: 0%;
+        min-width: 400px;
+    }
+}
+
+
+// 9976 311 325

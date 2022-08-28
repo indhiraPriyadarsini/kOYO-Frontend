@@ -1,0 +1,17 @@
+<div class="parent-dialog">
+    <div class="d-flex justify-content-end"><mat-icon class="cross" (click)="closeDialog()">close</mat-icon></div>
+    <div class="px-5 mob">
+<div mat-dialog-title>
+    <div style="font-size: 16px;" class="disqualifytitle">DISQUALIFY CANDIDATURE</div>
+</div>
+<div mat-dialog-content>
+    <div class="mt-1 colorone">Reason to disqualify candidate 
+        <div class="mt-1 name-color">@{{CandidateDetails.candidateDetails.first_name}} {{CandidateDetails.candidateDetails.last_name}}</div></div>
+    <div class="mt-3"><textarea style="width: 100%;height: 150px;" class="p-3" placeholder="Type Comment here..." #reason></textarea></div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="closebtn">Cancel</button>
+  <button mat-button mat-dialog-confirm class="confirm" (click)="updateData(reason.value)">Confirm Disqualification</button>
+</div>
+</div>
+</div>

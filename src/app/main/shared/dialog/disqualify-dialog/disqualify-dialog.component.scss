@@ -1,0 +1,44 @@
+::ng-deep {
+    .mat-dialog-container {
+        width: 450px;
+        border-radius: 8px;
+    }
+    .cdk-overlay-dark-backdrop {
+        backdrop-filter: blur(3px);
+        background: none;
+    }
+    .confirm {
+        background: #C3C5C6;
+        color:#515151;
+        font-weight: 400;
+    }
+    .closebtn {
+        color:#515151;
+        font-weight: 400;
+    }
+    .mat-dialog-actions {
+        justify-content: space-between;
+        color: #515151;
+    }
+    .cross{
+        color: #D61010;
+        cursor: pointer;
+    }
+    .colorone {
+        color: #C3C5C6;
+    }
+    .parent-dialog {
+        font-family: 'Montserrat';
+    }
+    .disqualifytitle {
+        font-family: 'Montserrat';
+    }
+    .name-color {
+        color:#0081BC;
+    }
+}
+@media only screen and (max-width: 600px) { 
+    .mob {
+        padding: 0px !important;
+    }
+}

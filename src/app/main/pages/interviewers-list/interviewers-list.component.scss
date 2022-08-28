@@ -1,0 +1,145 @@
+.interviewers-list {
+    margin-top: 50px;
+    padding: 20px 50px 10px 50px;
+    font-family: Montserrat;
+    .has-search .form-control {
+        padding-left: 2.375rem;
+    }
+    
+    .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+        color: #aaa;
+    }
+    .heading-button {
+        position: absolute;
+        right: 20px;
+        background-color: #061a40;
+    }
+    .dropdown-item {
+        margin-top: 5px;
+        input {
+            visibility: hidden;
+        }
+    }
+    .dropdown-item:hover {
+        background-color: #061a40;
+        color: white;
+    }
+    .mat-elevation-z8 {
+        box-shadow: none;
+        height: 650px;
+        table {
+            width: 100%;
+            box-shadow: white;
+            .mat-row .mat-cell {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid transparent;
+                cursor: pointer;
+                mat-drawer-container{
+                    background-color: transparent;
+                    .icon-edit {
+                        color: #061a40;
+                        width: 35px;
+                    }
+                    .icon-close {
+                        color: #d92524;
+                        width: 35px;
+                    }
+                }
+            }
+        }
+    }
+    .button-align {
+        .btn-primary {
+            background-color: #2495ca;
+            width: 100%;
+            border-color: #2495ca;
+        }
+        .btn-success {
+            width: 100%;
+        }
+    }
+}
+
+.drawer {
+    width: 500px;
+    padding: 20px 10px;
+    .drawerBody {
+        width: 90%;
+        margin: auto;
+        .updateRecord{
+            margin-top: 100px;
+        }
+        .download {
+            color: #2495ca;
+            text-decoration: none;
+        }
+        label {
+            font-weight: 400;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+        .btn-primary {
+            background-color: #2495ca;
+            width: 30%;
+            margin-top: 30px;
+            border-color: #2495ca;
+        }
+        .btn-success {
+            width: 65%;
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+        .custom-file-input{
+            padding-left: 100px;
+        }
+        
+        .inputDnD {
+          .form-file-control {
+            position: relative;
+            padding: 5.5rem 0 3em;
+            width: 100%;
+            outline: none;
+            border: 0.05em dashed grey;
+            cursor: pointer;
+            text-align: -webkit-center;
+            text-align-last: center;
+            opacity: 0.9;
+            z-index: 1;
+          }
+          svg{
+            position: absolute;
+            left: 45%;
+            top: 1.4em;
+          }
+          h3 {
+              margin: 20px;
+          }
+        }
+    }
+}
+.serachButton {
+    background-color: #061a40;
+    color: white;
+}
+.input-group input{
+    border-color: #061a40;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    ul li {
+        list-style-type: none;
+    }
+  }
+
+  

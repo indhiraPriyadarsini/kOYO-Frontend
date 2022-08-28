@@ -1,0 +1,73 @@
+<div class="parentdiv px-4 py-4">
+    <div class="d-flex justify-content-between flexcolumn pt-5">
+        <h4>Candidate Profile</h4>
+        <div class="d-flex btns flex-wrap">
+            <div class="align-items-center mr-3"><button class="px-4 py-2 dashbtn "  (click)="openDialog()">Disqualify</button></div>
+            <div class="align-items-center mr-3"><button class="px-4 py-2 dashbtn" (click)="navigate()">Disqualify List</button></div>
+            <div class="align-items-center flex-wrap-btn"><button class="px-4 py-2 dashbtn"><mat-icon class="mr-3 vertical-top">west</mat-icon>DASHBOARD</button></div>
+        </div>
+        </div>
+<mat-accordion  *ngFor="let rounds of candidateData.candidateRoundPerformanceDetails;let i = index" >
+    <!-- <mat-expansion-panel   class="mt-5" [expanded]="rounds.Status=='ongoing'" [disabled]="rounds.Status=='Not-Commenced'"> -->
+        <mat-expansion-panel   class="mt-5" [expanded]="candidateData.candidateRoundPerformanceDetails[i].isLive" [disabled]="this.disable">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <div class="d-flex flex-column justify-content-between">
+                <div class="d-flex align-items-center mt-3 mr-1">
+                    <div class="d-flex align-items-center mt-3">
+                    <div class="mr-3 padr-30 font-16 roundnumber">Round{{i+1}}</div>
+                    <div *ngIf="candidateData.candidateRoundPerformanceDetails[i].isLive" class="ongoing px-2 mr-3">ongoing</div>
+                     <!-- <div class="ongoing px-2 mr-3">{{candidateData.candidateRoundPerformanceDetails[i].final_status}}</div> -->
+                    <!-- <div *ngIf="rounds.slot" class="slot px-2">slot1</div> -->
+                    <div class="slot px-2">slot1</div> 
+                </div>
+
+            </div>
+                <div class="mt-3 mb-3 roundname font-18" >{{rounds.round.round_name}}</div>
+            </div>
+        </mat-panel-title>
+        <mat-panel-description (click)="$event.stopPropagation();">
+            <button [ngClass]="{'qualified': candidateData.candidateRoundPerformanceDetails[i].final_status === 'selected', 'not-commenced' : candidateData.candidateRoundPerformanceDetails[i].final_status  === 'Not-Commenced' }" class="px-4 py-1 btn" *ngIf="!candidateData.isLive">{{candidateData.candidateRoundPerformanceDetails[i].final_status}}</button>
+                <div *ngIf="candidateData.candidateRoundPerformanceDetails[i].isLive" class="mt-4 selectform">
+                    <!-- <div class="mt-4 selectform">  -->
+                      <mat-form-field appearance="fill" >
+                        <mat-label>Select Status</mat-label>
+                        <mat-select [(value)]="selectedStatus">
+                            <mat-option>None</mat-option>
+                          <mat-option [value]="option.viewValue" *ngFor="let option of Status">{{ option.viewValue }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="candidateForm" >
+          <div class="d-flex mb-3">
+              <div class="mr-5 panel font-300">Panel</div>
+              <div class="d-flex flex-lg-row flex-column" *ngFor="let interviewers of candidateData.panelsDetails.interviewers;let j = index">
+                  <!-- <div class="mr-3 px-1 bluetag">Interviewer1@presidio.com</div>
+                  <div class="px-1 whitetag">Interviewer1@presidio.com</div> -->
+                  <div class="mr-3 px-1 bluetag">{{interviewers.first_name}}</div>
+              </div>
+          </div>
+    <div>
+    <div class="mt-4">
+       <div><label class="color-51 font-16">Frontend Feedback:</label></div> 
+    </div>
+    <div class="mt-2"> <textarea #frontfeedbackInput class="largetextarea" formControlName="Frontend"></textarea></div> 
+
+    </div>
+    <div class="mt-2">
+        <div class=" mt-4">
+            <div><label class="color-51 font-16">Feedback/comments:</label></div> 
+         </div>
+            <div class="mt-2"> <textarea #feedbackInput class="largetextarea" formControlName="Frontend"></textarea></div> 
+
+    </div>
+        </form>
+
+            <div class="d-flex justify-content-end mt-3">
+                <button class="px-4 py-1 savebtn" (click)="updateRound(rounds,frontfeedbackInput.value,feedbackInput.value)">Save</button>
+            </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

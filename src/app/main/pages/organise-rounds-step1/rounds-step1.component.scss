@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic');
+
+.organise-rounds {
+	font-family: 'Montserrat', 'Courier New', Courier, monospace;
+	overflow-y: scroll;
+	height: 90vh;
+}
+.organise-rounds::-webkit-scrollbar-track {
+	border-radius: 1px;
+	border: 1px solid white;
+	width: 10px;
+}
+.organise-rounds::-webkit-scrollbar {
+	width: 3px;
+	background-color: white;
+	border-radius: 5px;
+}
+.organise-rounds::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+}
+
+.stepHeader {
+	margin: 40px 0px;
+}
+
+.font22 {
+	font-size: 22px;
+	color: #0081bc;
+}
+.font16 {
+	color: #c9c9c9;
+	font-size: 16px;
+}
+.font14 {
+	font-size: 14px;
+	color: #838383;
+}
+.font_nocolor {
+	font-size: 22px;
+	color: #d6d6d6;
+}
+.font-heading {
+	font-size: 14px;
+	color: #000000;
+	display: flex;
+	input {
+		margin-left: 4px;
+		font-size: 14px;
+	}
+	select {
+		margin-left: 4px;
+		font-size: 14px;
+	}
+}
+.durationRow {
+	margin-top: 10px;
+}
+::placeholder {
+	color: #c9c9c9;
+}
+button {
+	height: 35px;
+	border: none;
+	font-size: 14px;
+}
+.btn1 {
+	background-color: #0081bc;
+	color: white;
+}
+.btn2 {
+	background-color: #c3c5c6;
+	color: white;
+}
+
+.errorBox {
+	height: 20px;
+	.errorDisplay {
+		color: #d61010;
+	}
+}
+
+.displayBreaks {
+	height: 50px;
+	.breaks {
+		background-color: #a9d1e3;
+		border-radius: 20px;
+		color: #383838ab;
+		font-size: 12px;
+		.timeData {
+			color: #585858;
+			font-size: 14px;
+		}
+	}
+}
+
+.warning {
+	color: #d61010;
+}
+.warningDiv{
+	height:20px;
+}
+.nav-tabs .nav-link {
+	border-radius: 5px;
+	background-color: #e8e8e8;
+	color: #515151;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+	background-color: #ff9e16;
+	color: white;
+}
+.interviewers {
+	width: 100%;
+	.addInterviewers {
+		width: 40%;
+
+		.addBox {
+			background-color: #f4f4f4;
+			padding:10px;
+			border-radius: 5px;
+			margin-top: 20px;
+		}
+		.searchOptions{
+			margin-bottom: 10px;
+		.searchIcon {
+			margin-top: 2px;
+		}
+		.selecting {
+			display: flex;
+			width: 30%;
+				.btn {
+					background-color: #4693c4;
+					color: white;
+					width: 100%;
+				}
+				select {
+					width: 100%;
+				}
+		}
+		.search {
+			border: 1px solid #c4c5c6;
+			background-color: white;
+			border-radius: 15px;
+			width: 50%;
+			.inputClass {
+			padding: 2px;
+			margin-left: 14px;
+			}
+			input {
+			width: 70%;
+			outline: none;
+			border: 0px;
+			}
+			input::placeholder {
+			margin-top: 3px;
+			}
+			input:focus {
+			outline: none;
+			}
+		}
+		}
+		.box-1 {
+		width: 100%;
+		height: 515px;
+		overflow-y: scroll;
+		padding-bottom: 30px;
+			.card {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				margin: auto;
+				width: 90%;
+				height: 42px;
+				margin-top: 3px;
+			}
+			.unselected {
+				background-color: white;
+			}
+			.selected {
+				background-color: #a9d1e3;
+			}
+			.textDisplay {
+				width: 85%;
+				text-align: center;
+			}
+		}
+		.box-1::-webkit-scrollbar-track {
+			border-radius: 1px;
+			border: 1px solid f4f4f4;
+			width: 10px;
+		}
+		.box-1::-webkit-scrollbar {
+			width: 3px;
+			background-color: f4f4f4;
+			border-radius: 5px;
+		}
+		.box-1::-webkit-scrollbar-thumb {
+			border-radius: 100px;
+		}
+
+	}
+
+
+	.listInterviewers {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.selectedInterviewer {
+			height: 186px;
+			overflow-y: scroll;
+			border: 1px solid #dddddd;
+			border-radius: 5px;
+			margin-top: 10px;
+			.txt-area {
+				height: 100px;
+				border-color: #585858;
+				background-color: #9ac0d4;
+				input:focus {
+					border: none;
+					outline: none;
+				}
+			}
+		}
+		.boxHead {
+			margin-top: 20px;
+			font-weight: 500;
+		}
+		.newInterviewers {
+			border: 1px solid #dddddd;
+			padding: 20px;
+			border-radius: 5px;
+			margin-top: 10px;
+			.col-6 {
+				font-weight: 500;
+			}
+			.interviewerBtn {
+				width: 40%;
+				.uploadIcon{
+				margin-top: 3px;
+				}
+			}
+			.csvButton {
+				background-color: #ff9e16;
+				width: 70%;
+        		color:white
+			}
+			.addListButton {
+				background-color: #0081bc;
+				width: 80%;
+        		color:white
+			}
+		}
+	}
+}
+.subhead {
+	font-weight: 500;
+}
+.mat-chip.mat-standard-chip {
+	background-color: #9ac0d4;
+}
+.fileClass{
+	width:58%;
+	background-color:#ff9e16 ;
+}
+.fileClass::-webkit-file-upload-button {
+	visibility: hidden;
+  }
+.fileClass::before{
+	content: "Upload CSV";
+}

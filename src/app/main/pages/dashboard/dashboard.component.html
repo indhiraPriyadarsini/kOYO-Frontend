@@ -1,0 +1,24 @@
+<div class="parentdashboard d-flex">
+    <div class="drivedetails">
+        <div class="innerdrive d-flex">
+            <div class="font-22 colorone drivetext martop-10 font-bold">
+                DRIVES-LINEUP
+            </div>
+            <div class="d-flex mobbtns align-items-center">
+                <div class="padright-30 drafts d-flex"><div (click)="openDraft($event)">Drafts</div><mat-icon class="font-14 ">edit</mat-icon></div>
+                <div class="designbtns">
+                <button class="padtop-10 padbot-10 padleft-30 padright-30 newdrive marright-10 designbtn"  > 
+                    DESIGN TEMPLATES
+                    </button>
+                <button class="padtop-10 padbot-10 padleft-30 padright-30 newdrive green" (click)="navigate()"> 
+                CREATE NEW DRIVE
+                </button>
+                </div>
+            </div>
+        </div>
+    <div class="fixedheight">
+        <app-upcomingdrives *ngIf="upcomingdrives"></app-upcomingdrives>
+    </div>
+    </div>
+    </div>
+    

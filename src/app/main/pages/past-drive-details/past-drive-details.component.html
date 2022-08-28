@@ -1,0 +1,89 @@
+<div class="past-drives container-fluid p-5 m-0" #pastDrives>
+	<div class="row mb-5">
+		<h1 class="col-12 mb-4 main-heading">Drive Details</h1>
+		<div class="col-12 m-0 details px-3">
+			<div class="row justify-content-between p-3">
+				<div class="col-5 row my-2">
+					<h3 class="col-5 sub-heading">College Name</h3>
+					<p class="col-7">{{ driveData.college_name }}</p>
+				</div>
+				<div class="col-5 row my-2">
+					<h3 class="col-5 sub-heading">Date of Drive</h3>
+					<p class="col-7">
+						{{ driveData.start_date.slice(0, 10) }} -
+						{{ driveData.end_date.slice(0, 10) }}
+					</p>
+				</div>
+				<div class="col-5 row my-2">
+					<h3 class="col-5 sub-heading">Drive Name</h3>
+					<p class="col-7">{{ driveData.interview_name }}</p>
+				</div>
+				<div class="col-5 row my-2">
+					<h3 class="col-5 sub-heading">Placement Email</h3>
+					<p class="col-7">{{ driveData.college_spoc_email }}</p>
+				</div>
+				<div class="col-5 row my-2">
+					<h3 class="col-5 sub-heading">Placement Cordinator</h3>
+					<p class="col-7">{{ driveData.college_spoc_name }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-5">
+		<div class="col-6 candidate-details">
+			<div class="row">
+				<div class="container-fluid">
+					<h1 class="row main-heading mb-4">metrics</h1>
+					<div class="row mb-3 align-items-center">
+						<h3 class="col-4 sub-heading">participants count</h3>
+						<p class="col-8">{{ driveData.candidate_ids.split(',').length }}</p>
+					</div>
+					<div class="row align-items-center">
+						<h3 class="col-4 sub-heading">selected candidates</h3>
+						<p class="col-8">{{ selectedCandidates.length }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="container-fluid">
+					<h1 class="row main-heading mb-4">selected candidates</h1>
+					<div class="row selected-candidates">
+						<p
+							class="badge badge-pill"
+							*ngFor="let candidate of selectedCandidates"
+						>
+							{{ candidate }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-6 funnel p-3">
+			<h1 class="row main-heading mb-4">round details</h1>
+			<div class="row">
+				<div class="container-fluid">
+					<div
+						class="row justify-content-center align-items-center"
+						[style.--max]="driveData.rounds[0].selectedCount"
+						*ngFor="let round of driveData.rounds"
+					>
+						<p
+							class="round text-nowrap text-truncate sub-heading my-1 py-3 px-2"
+							[matTooltip]="round.round_name"
+							[style.--candidates]="round.selectedCount"
+						>
+							{{ round.round_name }}
+						</p>
+						<div class="candidates ml-2">{{ round.selectedCount }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-between">
+		<button class="footer-btn"><i class="bi bi-arrow-left"></i> back</button>
+		<button class="footer-btn" (click)="exportAsPdf(pastDrives)">
+			export as pdf
+		</button>
+	</div>
+</div>
