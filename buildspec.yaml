@@ -8,7 +8,7 @@ phases:
       - npm install -g @angular/cli
   build:
     commands:
-      - npm install
+      - npm install --save --legacy-peer-deps
       - ng build --prod  --configuration=production
   post_build:
     commands:
