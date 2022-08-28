@@ -14,7 +14,7 @@ phases:
     commands:
        - aws s3 cp dist/koyo s3://koyo-ui --recursive --acl public-read
        - aws configure set preview.cloudfront true
-       - aws cloudfront create-invalidation --distribution-id E1SDEW5US4ZD0Q --paths '/*'
+       - aws cloudfront create-invalidation --distribution-id E107UDIUHW1BHB --paths '/*'
 # artifacts:
 #   files:
 #     - '**/*'
