@@ -16,5 +16,6 @@ export const scope: ScopeType[] = [
   'email',
   'openid',
   'profile',
+  'phone',
   'aws.cognito.signin.user.admin',
 ];
