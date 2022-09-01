@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - npm install --save --legacy-peer-deps
-      - ng build --prod  --configuration=production
+      - ng build
   post_build:
     commands:
        - aws s3 cp dist/koyo s3://koyo-ui --recursive --acl public-read
