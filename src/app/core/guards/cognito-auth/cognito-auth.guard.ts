@@ -20,7 +20,7 @@ export class CognitoAuthGuard implements CanActivate {
     return this.cas
       .getCurrentUser()
       .then((user) =>
-        user && (user as CustomUser).username.startsWith('presidio')
+        user && (user as CustomUser).username.startsWith('azuread')
           ? true
           : this.router.parseUrl('/')
       )

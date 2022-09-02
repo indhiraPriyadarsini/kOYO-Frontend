@@ -19,16 +19,20 @@ export class LoginComponent implements OnInit {
       scopes+=element+' '
     });
      this.AUTH_URL=AuthCred.DOMAIN+'/oauth2/authorize?identity_provider=AzureAD&redirect_uri='+environment.redirectSignIn+'&response_type='+AuthCred.RESPONSETYPE+'&client_id='+environment.aws_user_pools_web_client_id+'&scope='+scopes;
-     console.log(this.AUTH_URL);
-     console.log(`https://koyo-dev-test.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=AzureAD&redirect_uri=https://dev.koyo.app.presidio.com/pages/&response_type=CODE&client_id=4h9k4rnelj3uf9rlff42u464us&scope=aws.cognito.signin.user.admin email openid phone profile`);
     }
 
-  ngOnInit(): void {}
-  async login() {
-    console.log("login");
-    console.log(this.AUTH_URL);
-    console.log(`https://koyo-dev-test.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=AzureAD&redirect_uri=https://dev.koyo.app.presidio.com/pages/&response_type=CODE&client_id=4h9k4rnelj3uf9rlff42u464us&scope=aws.cognito.signin.user.admin email openid phone profile`);
+  ngOnInit(): void {
+    this.cas.isLoggedIn$.subscribe(isLogged=>{
+      console.log(isLogged);
+      
+      if(isLogged){
+        this.router.navigate(['pages'])
+      }
+    })
     
+  }
+
+  async login() {
     location.href=this.AUTH_URL
     // this.router.navigate([this.AUTH_URL])
     // await this.cas.login();
