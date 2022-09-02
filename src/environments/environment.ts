@@ -8,7 +8,7 @@ export const environment = {
   aws_user_pools_web_client_id: '4h9k4rnelj3uf9rlff42u464us',
   redirectSignIn: 'https://dev.koyo.app.presidio.com',
   redirectSignOut: 'https://dev.koyo.app.presidio.com',
-  api: "https://d7h4a53qq5.execute-api.us-east-1.amazonaws.com/Stage/",
+  api: "https://d7h4a53qq5.execute-api.us-east-1.amazonaws.com/Prod/",
 };
 
 /*
