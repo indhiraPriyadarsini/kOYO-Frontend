@@ -1,6 +1,6 @@
 export enum AuthCred {
   REGION = 'us-east-1',
-  DOMAIN = 'koyo-dev-test.auth.us-east-1.amazoncognito.com',
+  DOMAIN = 'https://koyo-dev-test.auth.us-east-1.amazoncognito.com',
   RESPONSETYPE = 'code',
   FEDERATIONTARGET = 'COGNITO_USER_POOLS',
 }
