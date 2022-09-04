@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CognitoAuthService } from '@services/cognito-auth/cognito-auth.service';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -11,7 +10,7 @@ export class PagesComponent implements OnInit {
 	Token:any;
 	decoded:any;
 	username:any;
-	constructor(private casService:CognitoAuthService) {
+	constructor() {
 		this.Token=sessionStorage.getItem("token");
 		this.decoded = jwt_decode(this.Token);
 		this.username=this.decoded.email;
@@ -66,12 +65,8 @@ export class PagesComponent implements OnInit {
 			this.open();
 		} catch (error) {}
 	};
-
-	logout=()=>{
-       this.casService.logout()
-	}
-
 	ngOnInit(): void {
+
 		let side: any = <HTMLInputElement>document.getElementById('sidebar');
 		side.style.display = 'none';
 		this.opensidebar = true;
