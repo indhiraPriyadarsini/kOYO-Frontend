@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     scope.forEach(element => {
       scopes+=element+' '
     });
-     this.AUTH_URL=AuthCred.DOMAIN+'/oauth2/authorize?identity_provider=AzureAD&redirect_uri='+environment.redirectSignIn+'&response_type='+AuthCred.RESPONSETYPE+'&client_id='+environment.aws_user_pools_web_client_id+'&scope='+scopes;
+     this.AUTH_URL='https://'+AuthCred.DOMAIN+'/oauth2/authorize?identity_provider=AzureAD&redirect_uri='+environment.redirectSignIn+'&response_type='+AuthCred.RESPONSETYPE+'&client_id='+environment.aws_user_pools_web_client_id+'&scope='+scopes;
     }
 
   ngOnInit(): void {
