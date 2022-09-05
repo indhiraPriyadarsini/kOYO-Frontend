@@ -59,9 +59,11 @@ import { MatListModule } from '@angular/material/list';
 import { ResumeUploadComponent } from './main/pages/resume-upload/resume-upload.component';
 import { ConductRoundsComponent } from './main/pages/conduct-rounds/conduct-rounds.component';
 import { PastDriveDetailsComponent } from './main/pages/past-drive-details/past-drive-details.component';
+import { JoinMeetingComponent } from './chime/join-meeting/join-meeting.component';
 @NgModule({
   declarations: [
     AppComponent,
+    JoinMeetingComponent,
     ExcelParcingComponent,
     SidebarComponent,
     HeaderComponent,
@@ -89,6 +91,7 @@ import { PastDriveDetailsComponent } from './main/pages/past-drive-details/past-
 	ConductRoundsComponent,
 	ResumeUploadComponent,
 	PastDriveDetailsComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -132,8 +135,12 @@ import { PastDriveDetailsComponent } from './main/pages/past-drive-details/past-
     NgDragDropModule.forRoot(),
   ],
   entryComponents: [BreakPlannerComponent],
+  exports:[
+    FormsModule
+  ],
   providers: [InterviewService, ValidationsService, OrganiseRoundsService, DatePipe],
   bootstrap: [AppComponent],
 	
 })
-export class AppModule {}
+export class AppModule {
+}

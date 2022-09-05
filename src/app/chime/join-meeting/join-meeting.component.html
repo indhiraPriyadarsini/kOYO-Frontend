@@ -1,0 +1,24 @@
+<form [formGroup]="joinForm" (ngSubmit)="onSubmit()"> 
+ 
+    <p>
+      <label for="title">title</label>
+      <input type="text" id="title" name="title" formControlName="title">
+    </p>
+   
+    <p>
+      <label for="name">name </label>
+      <input type="text" id="name" name="name" formControlName="name">
+    </p>
+   
+    <p>
+      <label for="region">region </label>
+      <input type="text" id="region" name="region" formControlName="region">
+    </p>
+    <!-- <p>
+        <label for="ns-es">ns-es </label>
+        <input type="text" id="ns-es" name="ns-es" formControlName="ns-es">
+      </p> -->
+    <p>
+        <button type="submit">Submit</button>
+      </p>
+</form>  

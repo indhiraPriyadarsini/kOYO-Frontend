@@ -20,9 +20,14 @@ import { NewTemplateComponent } from './main/pages/new-template/new-template.com
 import { ResumeUploadComponent } from './main/pages/resume-upload/resume-upload.component';
 import { ConductRoundsComponent } from './main/pages/conduct-rounds/conduct-rounds.component';
 import { PastDriveDetailsComponent } from './main/pages/past-drive-details/past-drive-details.component';
+import { JoinMeetingComponent } from './chime/join-meeting/join-meeting.component';
+
 
 const routes: Routes = [
 	{ path: '', component: LoginComponent },
+	{ path: 'join', component: JoinMeetingComponent },
+	
+	
 	{
 		path: 'pages',
 		component: PagesComponent,
